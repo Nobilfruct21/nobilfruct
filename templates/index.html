@@ -194,10 +194,10 @@ h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-
     </video>
 
     <div class="card card--title">
-      <h1>Plante de afin sănătoase, pentru plantații care fructifică repede și bogat</h1>
+      <h1>{{ hero.titlu }}</h1>
       <div class="intro">
-        <img src="assets/radacini.jpg" alt="Sistemul radicular al plantelor de afin din pepinieră">
-        <p>Pepinieră de afin in vitro din Bologa, Cluj. Plantele noastre au mai multe tulpini, sunt libere de boli și pot da până la 1 kg de afine în al doilea an de la plantare.</p>
+        <img src="{{ hero.imagine }}" alt="Sistemul radicular al plantelor de afin din pepinieră">
+        <p>{{ hero.text }}</p>
       </div>
       <div class="btns">
         <a class="btn btn--cta" href="tel:0746239933">Sună-ne</a>
@@ -206,8 +206,8 @@ h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-
     </div>
 
     <div class="card card--prod">
-      <h2>Varietăți de afin</h2>
-      <p>Alege după perioada de coacere.</p>
+      <h2>{{ varietati.titlu }}</h2>
+      <p>{{ varietati.text }}</p>
       <div class="chips">
         <a href="varietati/index.html#timpurii">Timpurii</a>
         <a href="varietati/index.html#mijlocii">Mijlocii</a>
@@ -218,84 +218,59 @@ h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-
   </section>
 
   <section class="formats" id="formate" aria-labelledby="formate-titlu">
-    <h2 id="formate-titlu">Plante de afin, în trei formate de ghiveci</h2>
-    <p class="lead">Alege formatul cel mai potrivit pentru tine. Indiferent de alegere, îți asigurăm consultanță și suport de la plantare până la producție. Prețul îl stabilim în funcție de cantitate.</p>
+    <h2 id="formate-titlu">{{ formate.titlu }}</h2>
+    <p class="lead">{{ formate.text }}</p>
     <div class="grid">
+    {%- set fmt = ['1-4-litri','2-litri','5-7-litri'] %}
+    {%- set svgw = [92,112,150] %}
+    {%- for c in formate.carduri %}
     <article class="fcard">
       <div class="pic">
-        <svg width="92" viewBox="0 0 120 150" aria-hidden="true">
+        {%- if c.imagine %}
+        <img src="{{ c.imagine }}" alt="Plantă de afin în ghiveci de {{ c.titlu }}" loading="lazy" style="position:static">
+        {%- else %}
+        <svg width="{{ svgw[loop.index0] }}" viewBox="0 0 120 150" aria-hidden="true">
             <g fill="#9DB38F"><ellipse cx="60" cy="38" rx="9" ry="26"/><ellipse cx="38" cy="58" rx="9" ry="22" transform="rotate(-35 38 58)"/><ellipse cx="82" cy="58" rx="9" ry="22" transform="rotate(35 82 58)"/><ellipse cx="46" cy="30" rx="7" ry="18" transform="rotate(-18 46 30)"/><ellipse cx="74" cy="30" rx="7" ry="18" transform="rotate(18 74 30)"/></g>
             <path d="M24 84h72l-10 60H34z" fill="#1B2E24"/>
           </svg>
+        {%- endif %}
       </div>
-      <h3>1,4 litri</h3>
-      <p class="yield">500–700 g</p>
-      <p class="yield-l">recoltă estimată în primul an de producție</p>
-      <p class="spec">250 de plante pe palet</p>
-      <a class="btn btn--cta" href="contact/index.html?format=1-4-litri">Cere ofertă</a>
+      <h3>{{ c.titlu }}</h3>
+      <p class="yield">{{ c.productie }}</p>
+      <p class="yield-l">{{ c.eticheta }}</p>
+      <p class="spec">{{ c.palet }}</p>
+      <a class="btn btn--cta" href="contact/index.html?format={{ fmt[loop.index0] }}">Cere ofertă</a>
     </article>
-    <article class="fcard">
-      <div class="pic">
-        <svg width="112" viewBox="0 0 120 150" aria-hidden="true">
-            <g fill="#9DB38F"><ellipse cx="60" cy="38" rx="9" ry="26"/><ellipse cx="38" cy="58" rx="9" ry="22" transform="rotate(-35 38 58)"/><ellipse cx="82" cy="58" rx="9" ry="22" transform="rotate(35 82 58)"/><ellipse cx="46" cy="30" rx="7" ry="18" transform="rotate(-18 46 30)"/><ellipse cx="74" cy="30" rx="7" ry="18" transform="rotate(18 74 30)"/></g>
-            <path d="M24 84h72l-10 60H34z" fill="#1B2E24"/>
-          </svg>
-      </div>
-      <h3>2 litri</h3>
-      <p class="yield">700 g–1 kg</p>
-      <p class="yield-l">recoltă estimată în primul an de producție</p>
-      <p class="spec">160 de plante pe palet</p>
-      <a class="btn btn--cta" href="contact/index.html?format=2-litri">Cere ofertă</a>
-    </article>
-    <article class="fcard">
-      <div class="pic">
-        <svg width="150" viewBox="0 0 120 150" aria-hidden="true">
-            <g fill="#9DB38F"><ellipse cx="60" cy="38" rx="9" ry="26"/><ellipse cx="38" cy="58" rx="9" ry="22" transform="rotate(-35 38 58)"/><ellipse cx="82" cy="58" rx="9" ry="22" transform="rotate(35 82 58)"/><ellipse cx="46" cy="30" rx="7" ry="18" transform="rotate(-18 46 30)"/><ellipse cx="74" cy="30" rx="7" ry="18" transform="rotate(18 74 30)"/></g>
-            <path d="M24 84h72l-10 60H34z" fill="#1B2E24"/>
-          </svg>
-      </div>
-      <h3>5,7 litri</h3>
-      <p class="yield">1,2–1,5 kg</p>
-      <p class="yield-l">recoltă estimată în primul an de producție</p>
-      <p class="spec">80 de plante pe palet</p>
-      <a class="btn btn--cta" href="contact/index.html?format=5-7-litri">Cere ofertă</a>
-    </article>
+    {%- endfor %}
     </div>
-    <p class="note">Recoltele sunt estimări pentru condiții bune de cultură.</p>
-    <div class="deliver"><span>Livrare: octombrie–aprilie</span><span>Preț la cerere, în funcție de cantitate</span></div>
+    <p class="note">{{ formate.nota }}</p>
+    <div class="deliver"><span>{{ formate.livrare }}</span><span>{{ formate.pret }}</span></div>
   </section>
 
   <section class="block" aria-labelledby="prod-titlu">
-    <h2 id="prod-titlu">Cum producem plantele</h2>
-    <p class="lead">Toate plantele noastre sunt produse in vitro, scoase din laborator și aclimatizate în România, în pepiniera noastră din Bologa, jud. Cluj. Sunt crescute și îngrijite aici până când sunt gata de plantat. Pepinieră autorizată, certificată ITCSMS. <a href="blog/in-vitro-vs-butasi/index.html" style="font-weight:600;color:var(--cta)">De ce in vitro și nu butași? →</a></p>
+    <h2 id="prod-titlu">{{ productie.titlu }}</h2>
+    <p class="lead">{{ productie.text }} <a href="blog/in-vitro-vs-butasi/index.html" style="font-weight:600;color:var(--cta)">De ce in vitro și nu butași? →</a></p>
     <div class="steps">
+      {%- for p in productie.pasi %}
       <figure class="step">
-        <img src="assets/in-vitro.jpg" alt="Plantule de afin crescute in vitro" loading="lazy">
-        <figcaption><span class="num">1</span><b>In vitro</b>Plante înmulțite în condiții de laborator: sănătoase, uniforme și identice genetic cu varietatea din care provin.</figcaption>
+        <img src="{{ p.imagine }}" alt="{{ p.titlu }}: {{ p.text }}" loading="lazy">
+        <figcaption><span class="num">{{ loop.index }}</span><b>{{ p.titlu }}</b>{{ p.text }}</figcaption>
       </figure>
-      <figure class="step">
-        <img src="assets/aclimatizare.jpg" alt="Plantulă de afin in vitro în alveolă, în faza de aclimatizare" loading="lazy">
-        <figcaption><span class="num">2</span><b>Aclimatizare</b>Plantulele trec în alveole și se obișnuiesc treptat cu aerul și lumina de afară.</figcaption>
-      </figure>
-      <figure class="step">
-        <img src="assets/pepiniera.jpg" alt="Rânduri de plante de afin în ghivece, în pepiniera din Bologa" loading="lazy">
-        <figcaption><span class="num">3</span><b>Ghiveci</b>Cresc în ghivece în aer liber, cu mai multe tulpini și rădăcini dezvoltate, gata de plantat.</figcaption>
-      </figure>
+      {%- endfor %}
     </div>
   </section>
 
   <section class="block" aria-labelledby="an-titlu">
-    <h2 id="an-titlu">Pepiniera, de-a lungul anului</h2>
+    <h2 id="an-titlu">{{ anotimpuri.titlu }}</h2>
     <div class="seasons">
-      <figure><img src="assets/sezon-flori.jpg" alt="Flori de afin primăvara" loading="lazy"><figcaption>Primăvara</figcaption></figure>
-      <figure><img src="assets/sezon-fructe.jpg" alt="Ciorchine de afine coapte ținut în palmă" loading="lazy"><figcaption>Vara</figcaption></figure>
-      <figure><img src="assets/sezon-toamna.jpg" alt="Plante de afin cu frunze roșii toamna" loading="lazy"><figcaption>Toamna</figcaption></figure>
-      <figure><img src="assets/sezon-iarna.jpg" alt="Rânduri de afin în repaus, iarna, cu zăpadă" loading="lazy"><figcaption>Iarna</figcaption></figure>
+      {%- for a in anotimpuri.poze %}
+      <figure><img src="{{ a.imagine }}" alt="Pepiniera de afin – {{ a.eticheta }}" loading="lazy"><figcaption>{{ a.eticheta }}</figcaption></figure>
+      {%- endfor %}
     </div>
   </section>
 
   <section class="block" aria-labelledby="art-titlu">
-    <h2 id="art-titlu">Întrebările pe care ni le pun fermierii</h2>
+    <h2 id="art-titlu">{{ articole.titlu }}</h2>
     <div class="arts">
       <a class="art" href="blog/varsta-plantei/index.html">
         <img src="assets/radacini.jpg" alt="" loading="lazy">
@@ -309,11 +284,11 @@ h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-
   </section>
 
   <section class="consult" aria-labelledby="consult-titlu">
-    <img class="consult-img" src="assets/infiintare.jpg" alt="Înființarea unei plantații de afin în câmp" loading="lazy">
+    <img class="consult-img" src="{{ consultanta.imagine }}" alt="Înființarea unei plantații de afin în câmp" loading="lazy">
     <div>
-      <h2 id="consult-titlu">Te ajutăm de la înființare până la producție</h2>
-      <p>Acoperim tot procesul cu know-how de specialitate: alegerea terenului, analiza de sol, planul plantației, plantarea și îngrijirea până la primele recolte. Experiența noastră îmbină practica din pepinieră și din plantații cu studiile de specialitate în cultura afinului.</p>
-      <p class="sig">Consultanță: dr. ing. Sabin Molnar</p>
+      <h2 id="consult-titlu">{{ consultanta.titlu }}</h2>
+      <p>{{ consultanta.text }}</p>
+      <p class="sig">{{ consultanta.semnatura }}</p>
     </div>
     <div class="btns">
       <a class="btn btn--cta" href="calculator/index.html">Calculează-ți plantația</a>

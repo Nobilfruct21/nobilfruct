@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panou · Nobilfruct</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div id="login" class="login" hidden>
+  <form class="login-box" id="loginForm">
+    <img src="../assets/sigla.png" alt="Nobilfruct" height="56">
+    <h1>Panou de administrare</h1>
+    <label class="fl">Parolă<input class="field" type="password" name="password" autocomplete="current-password" required></label>
+    <label class="fl">Cod din aplicația de autentificare<input class="field" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="\d{6}" maxlength="6" required placeholder="6 cifre"></label>
+    <div class="msg" id="loginMsg" role="alert"></div>
+    <button class="btn" type="submit">Intră în panou</button>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <header class="top">
+    <img src="../assets/sigla.png" alt="Nobilfruct" height="40" class="logo">
+    <strong>Prima pagină</strong>
+    <a class="link" href="/" target="_blank" rel="noopener">Vezi site-ul ↗</a>
+    <button class="link" id="logout" type="button">Ieșire</button>
+  </header>
+  <div class="note" id="deployNote" hidden>Salvat. Site-ul se actualizează singur în 1–2 minute.</div>
+  <main class="main">
+    <p class="hint">Modifici textele și pozele de pe prima pagină. Apasă „Salvează pe site” jos, când ai terminat. Fiecare salvare se poate anula din istoricul GitHub.</p>
+    <div id="form"></div>
+  </main>
+  <div class="savebar" id="savebar" hidden>
+    <span>Ai modificări nesalvate</span>
+    <button class="btn ghost" id="discard" type="button">Renunță</button>
+    <button class="btn" id="save" type="button">Salvează pe site</button>
+  </div>
+  <div class="toast" data-toast role="status"></div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

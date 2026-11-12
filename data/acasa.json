@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "titlu": "Plante de afin sănătoase, pentru plantații care fructifică repede și bogat",
+    "text": "Pepinieră de afin in vitro din Bologa, Cluj. Plantele noastre au mai multe tulpini, sunt libere de boli și pot da până la 1 kg de afine în al doilea an de la plantare.",
+    "imagine": "assets/radacini.jpg"
+  },
+  "varietati": {
+    "titlu": "Varietăți de afin",
+    "text": "Alege după perioada de coacere."
+  },
+  "formate": {
+    "titlu": "Plante de afin, în trei formate de ghiveci",
+    "text": "Alege formatul cel mai potrivit pentru tine. Indiferent de alegere, îți asigurăm consultanță și suport de la plantare până la producție. Prețul îl stabilim în funcție de cantitate.",
+    "carduri": [
+      {
+        "titlu": "1,4 litri",
+        "productie": "500–700 g",
+        "eticheta": "recoltă estimată în primul an de producție",
+        "palet": "250 de plante pe palet",
+        "imagine": ""
+      },
+      {
+        "titlu": "2 litri",
+        "productie": "700 g–1 kg",
+        "eticheta": "recoltă estimată în primul an de producție",
+        "palet": "160 de plante pe palet",
+        "imagine": ""
+      },
+      {
+        "titlu": "5,7 litri",
+        "productie": "1,2–1,5 kg",
+        "eticheta": "recoltă estimată în primul an de producție",
+        "palet": "80 de plante pe palet",
+        "imagine": ""
+      }
+    ],
+    "nota": "Recoltele sunt estimări pentru condiții bune de cultură.",
+    "livrare": "Livrare: octombrie–aprilie",
+    "pret": "Preț la cerere, în funcție de cantitate"
+  },
+  "productie": {
+    "titlu": "Cum producem plantele",
+    "text": "Toate plantele noastre sunt produse in vitro, scoase din laborator și aclimatizate în România, în pepiniera noastră din Bologa, jud. Cluj. Sunt crescute și îngrijite aici până când sunt gata de plantat. Pepinieră autorizată, certificată ITCSMS.",
+    "pasi": [
+      {
+        "titlu": "In vitro",
+        "text": "Plante înmulțite în condiții de laborator: sănătoase, uniforme și identice genetic cu varietatea din care provin.",
+        "imagine": "assets/in-vitro.jpg"
+      },
+      {
+        "titlu": "Aclimatizare",
+        "text": "Plantulele trec în alveole și se obișnuiesc treptat cu aerul și lumina de afară.",
+        "imagine": "assets/aclimatizare.jpg"
+      },
+      {
+        "titlu": "Ghiveci",
+        "text": "Cresc în ghivece în aer liber, cu mai multe tulpini și rădăcini dezvoltate, gata de plantat.",
+        "imagine": "assets/pepiniera.jpg"
+      }
+    ]
+  },
+  "anotimpuri": {
+    "titlu": "Pepiniera, de-a lungul anului",
+    "poze": [
+      {
+        "eticheta": "Primăvara",
+        "imagine": "assets/sezon-flori.jpg"
+      },
+      {
+        "eticheta": "Vara",
+        "imagine": "assets/sezon-fructe.jpg"
+      },
+      {
+        "eticheta": "Toamna",
+        "imagine": "assets/sezon-toamna.jpg"
+      },
+      {
+        "eticheta": "Iarna",
+        "imagine": "assets/sezon-iarna.jpg"
+      }
+    ]
+  },
+  "articole": {
+    "titlu": "Întrebările pe care ni le pun fermierii"
+  },
+  "consultanta": {
+    "titlu": "Te ajutăm de la înființare până la producție",
+    "text": "Acoperim tot procesul cu know-how de specialitate: alegerea terenului, analiza de sol, planul plantației, plantarea și îngrijirea până la primele recolte. Experiența noastră îmbină practica din pepinieră și din plantații cu studiile de specialitate în cultura afinului.",
+    "semnatura": "Consultanță: dr. ing. Sabin Molnar",
+    "imagine": "assets/infiintare.jpg"
+  }
+}

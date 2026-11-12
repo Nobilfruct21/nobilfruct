@@ -1,0 +1,10 @@
+name = "nobilfruct"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+# Secrete (Cloudflare Pages → Settings → Variables and Secrets):
+# ADMIN_PASSWORD_HASH, ADMIN_TOTP_SECRET, SESSION_SECRET (generate cu tools/setup_admin.py), GITHUB_TOKEN
+
+[vars]
+GITHUB_REPO = "Nobilfruct21/nobilfruct"
+GITHUB_BRANCH = "main"
