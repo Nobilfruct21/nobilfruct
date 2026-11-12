@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>In vitro sau butași? Cum alegi plantele de afin | Nobilfruct Transilvania</title>
+<meta name="description" content="Ce spun studiile despre plantele de afin produse in vitro față de cele din butași și de ce contează rădăcina din ghiveci la prinderea în câmp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#1B2E24;
+  --verde-2:#234E45;
+  --bej:#FBF8F1;
+  --bej-2:#F0E9DA;
+  --cta:#2F5DA8;
+  --cta-hover:#234785;
+  --cta-light:#5B8DEF;
+  --r:36px;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bej);color:var(--verde);
+  font-family:"Figtree",system-ui,sans-serif;font-size:1.0625rem;line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cta-light);outline-offset:3px}
+
+/* ---------- bara de sus ---------- */
+.top{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  background:var(--verde);color:var(--bej);border-radius:999px;padding:8px}
+.top a{text-decoration:none}
+.logo{background:var(--bej);border-radius:999px;padding:8px 22px;display:flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:10px 18px;border-radius:999px;font-weight:500;transition:background .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{background:var(--bej);color:var(--verde)}
+.tel{background:var(--cta-light);color:var(--verde);font-weight:600;padding:13px 26px;border-radius:999px;transition:background .2s}
+.tel:hover{background:#9DBBF7}
+
+/* ---------- articol ---------- */
+.head{max-width:1320px;margin:14px auto 0;background:var(--bej-2);border-radius:var(--r);
+  display:grid;grid-template-columns:1.1fr 1fr;gap:12px;padding:12px;align-items:stretch}
+.head-txt{padding:36px 32px 32px}
+.kicker{display:inline-block;background:var(--bej);border-radius:999px;padding:6px 16px;font-weight:600;font-size:.88rem;margin-bottom:18px}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.05;margin:0 0 18px}
+.head-txt p{margin:0 0 18px;max-width:52ch}
+.byline{font-size:.92rem;opacity:.7}
+.head img{width:100%;height:100%;min-height:320px;object-fit:cover;border-radius:28px;display:block}
+
+article{max-width:760px;margin:56px auto 0;padding:0 4px}
+article h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.15;margin:48px 0 14px}
+article p{margin:0 0 16px}
+article ul{margin:0 0 16px;padding-left:22px}
+article li{margin-bottom:6px}
+sup a{text-decoration:none;color:var(--cta);font-weight:600;font-size:.8em;padding:0 1px}
+
+.stat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0 22px}
+.stat div{background:var(--bej-2);border-radius:24px;padding:22px 24px}
+.stat b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:2.4rem;letter-spacing:-.02em;line-height:1}
+.stat span{display:block;margin-top:6px;font-size:.95rem}
+
+.note{background:var(--bej-2);border-left:4px solid var(--cta-light);border-radius:0 20px 20px 0;padding:18px 22px;margin:22px 0}
+.note p:last-child{margin:0}
+
+figure{margin:26px 0}
+figure img{width:100%;border-radius:24px;display:block}
+figcaption{font-size:.9rem;opacity:.75;margin-top:8px}
+
+.tablewrap{overflow-x:auto;margin:22px 0;border-radius:24px}
+table{width:100%;border-collapse:collapse;background:var(--bej-2);font-size:.97rem}
+th,td{padding:14px 16px;text-align:left;vertical-align:top}
+thead th{background:var(--verde);color:var(--bej);font-weight:600}
+tbody tr+tr td{border-top:1px solid rgba(27,46,36,.12)}
+td:first-child{font-weight:600}
+
+.cta{max-width:1320px;margin:64px auto 0;background:var(--verde);color:var(--bej);border-radius:var(--r);padding:36px 40px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px}
+.cta h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.7rem;letter-spacing:-.01em;margin:0 0 4px;line-height:1.15}
+.cta p{margin:0;opacity:.85;max-width:52ch}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;font-weight:600;padding:13px 26px;border-radius:999px;border:2px solid transparent;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.btn--cta{background:var(--cta-light);color:var(--verde)}
+.btn--cta:hover{background:#9DBBF7}
+.btn--ghost{border-color:var(--bej);color:var(--bej)}
+.btn--ghost:hover{background:var(--bej);color:var(--verde)}
+
+.refs{max-width:760px;margin:48px auto 0;font-size:.88rem;opacity:.85;padding:0 4px}
+.refs h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.2rem;margin:0 0 10px}
+.refs ol{padding-left:22px;margin:0}
+.refs li{margin-bottom:8px}
+
+@media (max-width:820px){
+  body{padding:12px}
+  .top{border-radius:30px}
+  .nav{order:3;width:100%;margin:0;overflow-x:auto;justify-content:flex-start}
+  .nav a{white-space:nowrap}
+  .head{grid-template-columns:1fr}
+  .head-txt{padding:24px 16px 10px}
+  .head img{min-height:220px}
+  article{margin-top:40px}
+  .stat{grid-template-columns:1fr}
+  .cta{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="../../index.html" aria-label="Nobilfruct, prima pagină">
+    <img src="../../assets/sigla.png" alt="Nobilfruct">
+  </a>
+  <nav class="nav" aria-label="Meniu principal">
+    <a href="../../varietati/index.html">Varietăți</a>
+    <a href="../../tehnologia-de-cultura/index.html">Tehnologia de cultură</a>
+    <a href="../../calculator/index.html">Calculator</a>
+    <a href="../../blog/in-vitro-vs-butasi/index.html" aria-current="page">Blog</a>
+    <a href="../../contact/index.html">Contact</a>
+  </nav>
+  <a class="tel" href="tel:0746239933">0746 239 933</a>
+</header>
+
+<main>
+  <section class="head">
+    <div class="head-txt">
+      <span class="kicker">Material săditor</span>
+      <h1>In vitro sau butași? Ce contează când alegi plantele de afin</h1>
+      <p>Două plante de afin pot arăta la fel în ghiveci și se pot comporta complet diferit în câmp. Diferența o fac două lucruri pe care nu le vezi la cumpărare: cum a fost înmulțită planta și cum arată rădăcina ei.</p>
+      <p class="byline">dr. ing. Sabin Molnar · Nobilfruct Transilvania</p>
+    </div>
+    <img src="../../assets/in-vitro.jpg" alt="Plantule de afin crescute in vitro">
+  </section>
+
+  <article>
+    <h2>Cum se obține o plantă de afin</h2>
+    <p><b>Din butași.</b> Se taie lăstari de pe o plantă-mamă, se înrădăcinează în substrat și, după câteva luni, se mută în ghiveci. E metoda clasică, ieftină și simplă. Planta nouă moștenește însă tot ce are planta-mamă: eventualele boli, dar și anumite defecte, cum ar fi diferențe la momentul coacerii: fructele se pot coace cu aproximativ o săptămână mai târziu sau mai devreme, în funcție de lăstarul din care a fost luat butașul. În plus, lăstarii nu sunt identici nici măcar pe aceeași plantă: diferă în funcție de expunerea la soare și la lumină, de tratamente și de alți factori.</p>
+    <p><b>In vitro.</b> Se pornește de la fragmente foarte mici de plantă, înmulțite în condiții sterile de laborator, pe un mediu nutritiv. Plantulele obținute se înrădăcinează, se aclimatizează treptat la condițiile de afară și apoi cresc în ghiveci. Procesul e mai lung și mai scump, dar plantele pornesc curate și uniforme.</p>
+
+    <h2>Ce spun studiile</h2>
+    <p>Comparația dintre cele două metode a fost studiată în câmp, pe mai multe varietăți și în mai multe țări. Rezultatele cele mai clare vin din Florida, unde aceleași varietăți au fost plantate în paralel, din butași și din material in vitro:</p>
+    <div class="stat">
+      <div><b>+42%</b><span>producție la varietatea Emerald, plante in vitro față de butași<sup><a href="#r1">1</a></sup></span></div>
+      <div><b>+58%</b><span>producție la varietatea Jewel, în același studiu<sup><a href="#r1">1</a></sup></span></div>
+    </div>
+    <p>Plantele in vitro au avut mai multe tulpini, iar numărul de tulpini a fost legat direct de producție: cu cât mai multe tulpini, cu atât mai multe fructe. La a treia varietate din studiu, Primadonna, metoda de înmulțire nu a contat.<sup><a href="#r1">1</a></sup> Încă de la plantare și după primul sezon, plantele in vitro din toate cele trei varietăți aveau mai multe tulpini principale și mai multă masă vegetală.<sup><a href="#r2">2</a></sup></p>
+    <p>Un studiu de lungă durată din Minnesota, pe varietatea Northblue, a găsit plante mai viguroase, mai ramificate și cu producții mai mari în primii trei ani la materialul in vitro. Autorii au observat că avantajul se estompează în timp în zonele mai calde, dar poate rămâne important în zonele mai reci, cu sezon de vegetație scurt.<sup><a href="#r3">3</a></sup> Este situația multor zone din Transilvania.</p>
+
+    <div class="note">
+      <p><b>Ca să fim corecți:</b> in vitro nu înseamnă automat o plantă mai bună. Într-un studiu din Estonia, plantele din butași au crescut mai înalte în primii ani și au avut o masă de rădăcini mai mare, iar o clonă in vitro a suferit mai mult de pe urma înghețului.<sup><a href="#r4">4</a></sup> Calitatea materialului in vitro depinde de laboratorul de proveniență și de cum este crescută apoi planta. De aceea contează pe cine alegi.</p>
+    </div>
+
+    <h2>Sănătatea plantei: bolile vin odată cu butașul</h2>
+    <p>Multe dintre virozele afinului nu au tratament: o plantă infectată rămâne infectată toată viața. Ghidurile Universității de Stat din Michigan arată că aceste virusuri se răspândesc prin material săditor infectat și prin vectori precum insectele și nematozii, iar pentru unele dintre ele butașii infectați sunt sursa probabilă a infecției.<sup><a href="#r5">5</a></sup> Recomandarea lor este aceeași pentru aproape fiecare viroză: plantați doar material săditor testat și certificat.</p>
+    <p>Pentru fermier, o viroză adusă cu plantele înseamnă producții mai mici an de an și plante care se sting treptat, într-o cultură gândită pentru 20 de ani sau mai mult.</p>
+
+    <h2>Al doilea lucru care contează, și poate cel mai important: rădăcina din ghiveci</h2>
+    <p>Aici e partea pe care cei mai mulți o ignoră. În România și în Polonia, majoritatea plantelor de afin în ghiveci sunt crescute în turbă simplă și fertilizate des. Planta crește repede și arată bine la vânzare. Problema se vede abia după plantare.</p>
+    <p>În turba simplă, rădăcinile mici întâmpină rezistență să pătrundă printre fibrele de turbă și aleg calea cea mai ușoară: exteriorul balotului, mai ales că acolo ajunge și o bună parte din îngrășământ. Ajung repede la perete, îl ocolesc și se înfășoară în jurul balotului, în loc să exploreze interiorul ghiveciului. Cercetările pe plante lemnoase crescute în container arată că aceste rădăcini circulare se lignifică și rămân o deformare permanentă, care limitează creșterea rădăcinilor în solul din jur și întârzie prinderea.<sup><a href="#r6">6</a></sup> Studiile despre fertilizare în pepinieră arată, la rândul lor, că plantele hrănite intens cresc mai multă parte aeriană decât rădăcină și, după transplantare, refac mai puțină rădăcină.<sup><a href="#r7">7</a></sup></p>
+    <p>În câmp, asta înseamnă plante care stagnează în primii ani sau se pierd după plantare.</p>
+
+    <figure>
+      <img src="../../assets/radacini-closeup.jpg" alt="Baloturi de rădăcini ale plantelor de afin Nobilfruct, scoase din ghiveci">
+      <figcaption>Plantele noastre scoase din ghiveci: rădăcina ocupă tot balotul, nu doar marginea lui.</figcaption>
+    </figure>
+
+    <p><b>De aceea noi nu creștem plantele în turbă simplă.</b> Folosim un substrat special, în care rădăcina se dezvoltă și în interiorul balotului, nu doar pe margini. Pentru noi e mai dificil: apa se scurge mult mai repede, substratul reține mult mai puțină apă, iar managementul pepinierei cere atât cunoștințe de specialitate, cât și o atenție sporită.</p>
+    <p><b>De ce optăm pentru asta?</b> Pentru ca fermierul să primească o plantă cu o rădăcină sănătoasă și puternică, care se adaptează ușor în câmp. Pierderile la plantare sunt practic inexistente: 1–2 plante la 10.000.</p>
+
+    <h2>Pe scurt</h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th>Butași</th><th>In vitro</th></tr></thead>
+        <tbody>
+          <tr><td>Sănătate</td><td>Moștenesc bolile plantei-mamă, inclusiv virozele</td><td>Pornesc curate, din material verificat</td></tr>
+          <tr><td>Tulpini de la bază</td><td>Mai puține</td><td>Mai multe în primii ani, cu efect direct asupra producției<sup><a href="#r1">1</a></sup></td></tr>
+          <tr><td>Uniformitate</td><td>Variabilă, după planta-mamă și chiar după lăstarul folosit</td><td>Plante uniforme, identice cu varietatea</td></tr>
+          <tr><td>Primii ani de producție</td><td>Bază de comparație</td><td>Producții mai mari la mai multe varietăți studiate<sup><a href="#r1">1</a>,<a href="#r3">3</a></sup></td></tr>
+          <tr><td>Preț</td><td>Mai mic</td><td>Mai mare: proces mai lung și mai costisitor</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Indiferent de metoda de înmulțire, întrebați și de rădăcină: cereți să vedeți o plantă scoasă din ghiveci. Un balot plin de rădăcini în interior, nu doar un covor de rădăcini pe margine, este cel mai bun semn că planta se va prinde.</p>
+  </article>
+
+  <section class="cta">
+    <div>
+      <h2>Toate plantele noastre sunt produse in vitro</h2>
+      <p>Și crescute într-un substrat în care rădăcina se dezvoltă în tot balotul. Calculează de câte plante ai nevoie sau cere o ofertă.</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn--cta" href="../../calculator/index.html">Calculează-ți plantația</a>
+      <a class="btn btn--ghost" href="../../contact/index.html">Cere ofertă</a>
+    </div>
+  </section>
+
+  <section class="refs" aria-labelledby="surse">
+    <h2 id="surse">Surse</h2>
+    <ol>
+      <li id="r1">Reproductive Growth and Yield of Three Southern Highbush Blueberry Cultivars Obtained from Micropropagation and Softwood Cuttings in Two Florida Locations. ASHS Annual Conference, 2012. <a href="https://ashs.confex.com/ashs/2012/webprogram/Paper10296.html">ashs.confex.com</a></li>
+      <li id="r2">Vegetative Growth of Southern Highbush Blueberry Cultivars Obtained from Micropropagation and Softwood Cuttings in Two Florida Locations. ASHS Annual Conference, 2012. <a href="https://ashs.confex.com/ashs/2012/webprogram/Paper10256.html">ashs.confex.com</a></li>
+      <li id="r3">El-Shiekh A. și colab. Long-term effects of propagation by tissue culture or softwood single-node cuttings on growth habit, yield, and berry weight of 'Northblue' blueberry. Journal of the American Society for Horticultural Science 121:339–342, 1996. <a href="https://experts.umn.edu/en/publications/long-term-effects-of-propagation-by-tissue-culture-or-softwood-si/">experts.umn.edu</a></li>
+      <li id="r4">Albert T., Starast M., Karp K. și colab. The influence of propagation method on growth of the half-highbush blueberry 'Northblue'. Acta Horticulturae 812:141–146. <a href="https://ishs.org/ishs-article/812_14/">ishs.org</a></li>
+      <li id="r5">Michigan State University Extension. Virus and Virus-like Diseases of Blueberries, Bulletin E3048. <a href="https://www.canr.msu.edu/resources/michigan_blueberry_facts_virus_and_viruslike_diseases_of_blueberries_e3048">canr.msu.edu</a></li>
+      <li id="r6">Cregg B. Untangling the Issue of Circling Roots. Arnoldia, Arnold Arboretum, Harvard University. <a href="https://arboretum.harvard.edu/arnoldia-stories/untangling-the-issue-of-circling-roots">arboretum.harvard.edu</a></li>
+      <li id="r7">Studiu despre efectul fertilizării în pepinieră, al tăierii balotului și al irigării după plantare asupra prinderii arbustului <i>Ilex cornuta</i> 'Burfordii Nana' crescut în container. Journal of Environmental Horticulture 14(3):105. <a href="https://jeh.kglmeridian.com/downloadpdf/view/journals/jenh/14/3/article-p105.pdf">jeh.kglmeridian.com</a></li>
+    </ol>
+  </section>
+</main>
+
+<script>
+/* pagina nouă se deschide mereu de sus, cu excepția legăturilor spre o secțiune (#) */
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+if(!location.hash){window.scrollTo(0,0);addEventListener('load',function(){window.scrollTo(0,0);});}
+</script>
+</body>
+</html>

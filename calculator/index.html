@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculator plantație de afin | Nobilfruct Transilvania</title>
+<meta name="description" content="Află câte plante de afin îți trebuie, ce materiale și ce producție poți estima în primii 5 ani. Calculator gratuit Nobilfruct.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#1B2E24;
+  --verde-2:#234E45;
+  --bej:#FBF8F1;
+  --bej-2:#F0E9DA;
+  --cta:#2F5DA8;
+  --cta-hover:#234785;
+  --cta-light:#5B8DEF;
+  --frunza:#9DB38F;
+  --r:36px;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bej);color:var(--verde);
+  font-family:"Figtree",system-ui,sans-serif;font-size:1.0625rem;line-height:1.55}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--cta-light);outline-offset:3px}
+
+/* ---------- bara de sus ---------- */
+.top{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  background:var(--verde);color:var(--bej);border-radius:999px;padding:8px}
+.logo{background:var(--bej);border-radius:999px;padding:8px 22px;display:flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:10px 18px;border-radius:999px;font-weight:500;transition:background .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{background:var(--bej);color:var(--verde)}
+.tel{background:var(--cta-light);color:var(--verde);font-weight:600;padding:13px 26px;border-radius:999px;transition:background .2s}
+.tel:hover{background:#9DBBF7}
+
+/* ---------- calculator ---------- */
+.wrap{max-width:960px;margin:14px auto 0}
+.card{background:var(--bej-2);border-radius:var(--r);padding:40px 40px 44px}
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(2rem,3.4vw,3rem);line-height:1.05;margin:0 0 10px;max-width:20ch}
+.lead{margin:0 0 28px;max-width:56ch}
+
+/* tab-uri */
+.tabs{display:flex;gap:6px;background:var(--bej);padding:6px;border-radius:999px;margin-bottom:32px}
+.tab{flex:1;font:inherit;font-weight:600;color:var(--verde);background:none;border:0;border-radius:999px;
+  padding:12px 10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .2s,color .2s}
+.tab .n{width:26px;height:26px;border-radius:50%;background:var(--bej-2);display:grid;place-items:center;font-size:.85rem;flex:none}
+.tab:hover{background:var(--bej-2)}
+.tab[aria-selected="true"]{background:var(--verde);color:var(--bej)}
+.tab[aria-selected="true"] .n{background:var(--cta-light);color:var(--verde)}
+
+.panel[hidden]{display:none}
+h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.01em;margin:0 0 14px}
+.q{margin-bottom:28px}
+
+/* pastile */
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:block;background:var(--bej);border:2px solid transparent;padding:11px 22px;border-radius:999px;
+  font-weight:500;cursor:pointer;transition:background .2s,color .2s,border-color .2s;user-select:none}
+.opt span small{display:block;font-size:.82rem;font-weight:400;opacity:.75;line-height:1.2}
+.opt:hover span{border-color:var(--verde)}
+.opt input:checked + span{background:var(--cta);color:#fff;border-color:var(--cta)}
+.opt input:focus-visible + span{outline:3px solid var(--cta-light);outline-offset:3px}
+
+.area{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
+.area input{font:inherit;font-size:1.4rem;font-weight:600;color:var(--verde);background:var(--bej);
+  border:2px solid transparent;border-radius:18px;padding:12px 18px;width:220px}
+.area input:focus{outline:none;border-color:var(--cta)}
+.area .opts{align-items:center}
+
+/* rezultat mare */
+.big{background:var(--verde);color:var(--bej);border-radius:28px;padding:26px 30px;display:flex;flex-wrap:wrap;
+  align-items:baseline;gap:6px 14px;margin:6px 0 0}
+.big b{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:-.02em;line-height:1}
+.big span{opacity:.85}
+
+/* materiale */
+.mat{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+.m{background:var(--bej);border-radius:24px;padding:22px 24px}
+.m small{display:block;font-weight:500;opacity:.7;margin-bottom:4px}
+.m b{font-family:"Bricolage Grotesque",sans-serif;font-size:2rem;letter-spacing:-.02em;line-height:1.1;display:block}
+.m p{margin:8px 0 0;font-size:.93rem;opacity:.85}
+.m--alt{grid-column:1/-1;background:none;border:2px dashed rgba(27,46,36,.3)}
+td.zero{font-weight:400;font-size:.9rem;opacity:.8;text-align:left;white-space:normal}
+.hint{background:var(--bej);border-left:4px solid var(--cta-light);border-radius:0 18px 18px 0;padding:14px 18px;margin:0 0 6px;font-size:.95rem}
+
+/* grafic producție */
+.chart{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-items:end;height:260px;
+  background:var(--bej);border-radius:24px;padding:24px 24px 0;margin-bottom:14px}
+.bar{display:flex;flex-direction:column;justify-content:flex-end;height:100%;text-align:center}
+.bar .v{font-weight:600;font-size:.9rem;margin-bottom:6px;white-space:nowrap}
+.bar .col{background:var(--verde-2);border-radius:14px 14px 0 0;transition:height .4s ease;min-height:6px;position:relative}
+.bar .col i{position:absolute;left:0;right:0;top:0;background:var(--frunza);border-radius:14px 14px 0 0}
+.chart-x{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:0 24px;margin-bottom:22px;text-align:center;font-weight:500;font-size:.93rem}
+
+table{width:100%;border-collapse:collapse;background:var(--bej);border-radius:24px;overflow:hidden;font-size:.97rem}
+th,td{padding:13px 16px;text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-weight:600;background:var(--verde);color:var(--bej)}
+tbody tr+tr td{border-top:1px solid rgba(27,46,36,.12)}
+td.ven{font-weight:600}
+.tablewrap{overflow-x:auto;border-radius:24px;margin-bottom:18px}
+
+.price{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.price input{font:inherit;font-weight:600;width:96px;padding:9px 14px;border-radius:14px;border:2px solid transparent;background:var(--bej);color:var(--verde)}
+.price input:focus{outline:none;border-color:var(--cta)}
+.note{font-size:.9rem;opacity:.8;margin:0 0 4px}
+
+/* navigare */
+.nav-steps{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-block;font:inherit;font-weight:600;padding:14px 30px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn--cta{background:var(--cta);color:#fff}
+.btn--cta:hover{background:var(--cta-hover)}
+.btn--ghost{background:none;border-color:var(--verde);color:var(--verde)}
+.btn--ghost:hover{background:var(--verde);color:var(--bej)}
+.btn[hidden]{display:none}
+.spacer{flex:1}
+
+/* final */
+.final{margin-top:14px;background:var(--verde);color:var(--bej);border-radius:var(--r);padding:34px 40px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px 28px}
+.final h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.6rem;letter-spacing:-.01em;margin:0 0 4px;line-height:1.15}
+.final p{margin:0;opacity:.85;max-width:56ch}
+.final .sig{margin-top:10px;font-size:.9rem;opacity:.65}
+.final .btn--cta{background:var(--cta-light);color:var(--verde)}
+.final .btn--cta:hover{background:#9DBBF7}
+
+@media (max-width:820px){
+  body{padding:12px}
+  .top{border-radius:30px}
+  .nav{order:3;width:100%;margin:0;overflow-x:auto;justify-content:flex-start}
+  .nav a{white-space:nowrap}
+  .card{padding:28px 18px 32px}
+  .tab{flex-direction:column;gap:4px;font-size:.85rem;padding:10px 4px;border-radius:22px}
+  .tabs{border-radius:28px}
+  .mat{grid-template-columns:1fr}
+  .chart{height:220px;gap:8px;padding:18px 12px 0}
+  .chart-x{gap:8px;padding:0 12px}
+  .bar .v{font-size:.62rem;white-space:normal;line-height:1.2}
+  .final{padding:28px 22px}
+  th,td{padding:11px 10px;font-size:.88rem;white-space:normal}
+  th:nth-child(2),td:nth-child(2):not([colspan]){display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="../index.html" aria-label="Nobilfruct, prima pagină">
+    <img src="../assets/sigla.png" alt="Nobilfruct">
+  </a>
+  <nav class="nav" aria-label="Meniu principal">
+    <a href="../varietati/index.html">Varietăți</a>
+    <a href="../tehnologia-de-cultura/index.html">Tehnologia de cultură</a>
+    <a href="../calculator/index.html" aria-current="page">Calculator</a>
+    <a href="../blog/in-vitro-vs-butasi/index.html">Blog</a>
+    <a href="../contact/index.html">Contact</a>
+  </nav>
+  <a class="tel" href="tel:0746239933">0746 239 933</a>
+</header>
+
+<main class="wrap">
+  <section class="card">
+    <h1>Calculator pentru plantația ta de afin</h1>
+    <p class="lead">Introdu suprafața și află câte plante îți trebuie, ce materiale să pregătești și ce producție poți estima în primii 5 ani.</p>
+
+    <div class="tabs" role="tablist" aria-label="Pașii calculatorului">
+      <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true"><span class="n">1</span>Suprafața</button>
+      <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><span class="n">2</span>Materiale</button>
+      <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><span class="n">3</span>Producție</button>
+    </div>
+
+    <!-- PAS 1 -->
+    <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+      <div class="q">
+        <h2>Ce suprafață ai?</h2>
+        <div class="area">
+          <input id="sup" type="number" inputmode="decimal" min="0" step="any" value="1" aria-label="Suprafața">
+          <div class="opts" role="radiogroup" aria-label="Unitate de măsură">
+            <label class="opt"><input type="radio" name="unit" value="ha" checked><span>hectare</span></label>
+            <label class="opt"><input type="radio" name="unit" value="mp"><span>m²</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="q">
+        <h2>Ce sistem de plantare?</h2>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="sistem" value="3000"><span>Intensiv<small>3.000 plante/ha</small></span></label>
+          <label class="opt"><input type="radio" name="sistem" value="4500" checked><span>Superintensiv<small>4.500 plante/ha</small></span></label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h2>Ce plante?</h2>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="ghiveci" value="1.4" checked><span>Duke, ghiveci 1,4 L</span></label>
+          <label class="opt"><input type="radio" name="ghiveci" value="2"><span>Duke, ghiveci 2 L</span></label>
+        </div>
+      </div>
+
+      <div class="big" aria-live="polite"><span>Îți trebuie</span><b id="r-plante">4.500</b><span>de plante</span></div>
+    </div>
+
+    <!-- PAS 2 -->
+    <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+      <h2>Ce trebuie să pregătești</h2>
+      <div class="mat">
+        <div class="m"><small>Plante de afin Duke</small><b id="m-plante">4.500</b><p id="m-plante-d">ghiveci 1,4 L</p></div>
+        <div class="m"><small>Turbă</small><b id="m-turba">300 m³</b><p>Cantitatea exactă se stabilește după analiza de sol.</p></div>
+        <div class="m"><small>Rezervor de apă</small><b id="m-apa">189 m³</b><p id="m-apa-d">Acoperă 2 săptămâni de irigare la maturitate (3 L/plantă/zi).</p></div>
+        <div class="m"><small>Irigare prin picurare</small><b>2 linii</b><p>pe fiecare rând de plante</p></div>
+        <div class="m"><small>Folie agrotextilă</small><b>1,6 m lățime</b><p>pe fiecare rând, împotriva buruienilor și pentru păstrarea umidității</p></div>
+        <div class="m"><small>Pregătirea solului</small><b>Analiză de sol</b><p>înainte de plantare; de ea depind turba și corecțiile</p></div>
+        <div class="m m--alt"><small>Dacă solul nu e potrivit pentru afin</small><b id="m-cont">4.500 containere</b><p>de 35–40 L, câte unul pentru fiecare plantă, umplute cu substrat corespunzător</p></div>
+      </div>
+      <p class="hint"><b>Afinul are nevoie de sol acid.</b> Din analiza de sol vedem dacă plantezi direct în teren, cu turbă, sau în containere. Te ajutăm să o interpretezi.</p>
+    </div>
+
+    <!-- PAS 3 -->
+    <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+      <h2>Producția estimată</h2>
+      <div class="price">
+        <label for="pret">Preț de vânzare:</label>
+        <input id="pret" type="number" inputmode="decimal" min="0" step="0.5" value="6">
+        <span>€/kg</span>
+      </div>
+
+      <div class="chart" id="chart" aria-hidden="true"></div>
+      <div class="chart-x" aria-hidden="true"><span>Anul 1</span><span>Anul 2</span><span>Anul 3</span><span>Anul 4</span><span>Anul 5</span></div>
+
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>După plantare</th><th>kg / plantă</th><th>Producție totală</th><th>Venit estimat</th></tr></thead>
+          <tbody id="tbl"></tbody>
+        </table>
+      </div>
+      <p class="note">Estimări pentru condiții corecte de cultură: sol pregătit, turbă, irigare și fertilizare. Producția reală depinde de climă și de îngrijire.</p>
+    </div>
+
+    <div class="nav-steps">
+      <button class="btn btn--ghost" id="prev" hidden>Înapoi</button>
+      <span class="spacer"></span>
+      <button class="btn btn--cta" id="next">Vezi materialele</button>
+    </div>
+  </section>
+
+  <section class="final">
+    <div>
+      <h3>Vrei o ofertă și detalii pentru plantația ta?</h3>
+      <p>Experiența noastră îmbină practica din pepinieră și din plantații cu studiile de specialitate în cultura afinului. Te ajutăm cu alegerea terenului, analiza de sol și planul de înființare.</p>
+      <p class="sig">Consultanță: dr. ing. Sabin Molnar</p>
+    </div>
+    <a class="btn btn--cta" id="cta" href="../contact/index.html">Cere ofertă</a>
+  </section>
+</main>
+
+<script>
+(function () {
+  /* ===== CIFRE DE BAZĂ: modifică doar aici ===== */
+  var TURBA_PE_HA = 300;      // m³ turbă / ha
+  var APA_PLANTA_ZI = 3;      // litri / plantă / zi la maturitate
+  var ZILE_REZERVA = 14;      // autonomie rezervor
+  // producție kg/plantă [min, max] pentru anii 1–5 după plantare
+  // anul 1: fără recoltă (se îndepărtează mugurii floriferi)
+  var PRODUCTIE = {
+    '1.4': [[0, 0], [0.5, 0.7], [1.2, 1.5], [2.0, 2.5], [3.0, 3.5]],
+    '2':   [[0, 0], [0.7, 1.0], [1.5, 1.8], [2.5, 3.0], [3.5, 4.0]]
+  };
+  /* ============================================== */
+
+  var $ = function (id) { return document.getElementById(id); };
+  var nf = new Intl.NumberFormat('ro-RO', { maximumFractionDigits: 0 });
+  var nf1 = new Intl.NumberFormat('ro-RO', { maximumFractionDigits: 1 });
+  function val(name) { var e = document.querySelector('input[name="' + name + '"]:checked'); return e ? e.value : null; }
+
+  function hectare() {
+    var v = parseFloat(String($('sup').value).replace(',', '.')) || 0;
+    return val('unit') === 'mp' ? v / 10000 : v;
+  }
+
+  function calc() {
+    var ha = Math.max(0, hectare());
+    var dens = +val('sistem');
+    var g = val('ghiveci');
+    var plante = Math.round(ha * dens);
+    var pret = Math.max(0, parseFloat(String($('pret').value).replace(',', '.')) || 0);
+
+    $('r-plante').textContent = nf.format(plante);
+    $('m-plante').textContent = nf.format(plante);
+    $('m-plante-d').textContent = 'ghiveci ' + (g === '2' ? '2 L' : '1,4 L') + ', ' + (dens === 3000 ? 'sistem intensiv' : 'sistem superintensiv');
+    $('m-turba').textContent = nf1.format(ha * TURBA_PE_HA) + ' m³';
+    var apaZi = plante * APA_PLANTA_ZI;
+    $('m-apa').textContent = nf1.format(Math.ceil(apaZi * ZILE_REZERVA / 100) / 10) + ' m³';
+    $('m-apa-d').textContent = 'Acoperă 2 săptămâni de irigare la maturitate (' + APA_PLANTA_ZI + ' L/plantă/zi, adică ' + nf.format(apaZi) + ' L/zi).';
+
+    // producție
+    var p = PRODUCTIE[g], maxKg = plante * p[p.length - 1][1] || 1, rows = '', bars = '';
+    $('m-cont').textContent = nf.format(plante) + ' containere';
+    p.forEach(function (r, i) {
+      var kMin = plante * r[0], kMax = plante * r[1];
+      if (r[1] === 0) {
+        rows += '<tr><td>Anul ' + (i + 1) + '</td><td colspan="3" class="zero">Fără recoltă: îndepărtăm mugurii floriferi, ca planta să se dezvolte și să fie pregătită pentru producție.</td></tr>';
+        bars += '<div class="bar"><span class="v">0</span><div class="col" style="height:6px"></div></div>';
+        return;
+      }
+      rows += '<tr><td>Anul ' + (i + 1) + '</td><td>' + nf1.format(r[0]) + '–' + nf1.format(r[1]) + ' kg</td>' +
+        '<td>' + kg(kMin) + '–' + kg(kMax) + '</td>' +
+        '<td class="ven">' + nf.format(kMin * pret) + '–' + nf.format(kMax * pret) + ' €</td></tr>';
+      var hMax = kMax / maxKg * 100, hMin = kMin / kMax * 100;
+      bars += '<div class="bar"><span class="v">' + kg(kMin) + '–' + kg(kMax) + '</span>' +
+        '<div class="col" style="height:calc(' + hMax + '% - 30px)"><i style="height:' + (100 - hMin) + '%"></i></div></div>';
+    });
+    $('tbl').innerHTML = rows;
+    $('chart').innerHTML = bars;
+
+    // butonul de ofertă duce în formular cu suprafața și ghiveciul bifate
+    var s = ha < 0.5 ? 'sub-0-5' : ha < 3 ? '0-5-3' : ha <= 5 ? '3-5' : 'peste-5';
+    $('cta').href = '../contact/index.html?format=' + (g === '2' ? '2-litri' : '1-4-litri') + '&suprafata=' + s;
+    $('cta').textContent = plante > 0 ? 'Cere ofertă pentru ' + nf.format(plante) + ' de plante' : 'Cere ofertă';
+  }
+  function kg(x) { return x >= 1000 ? nf1.format(x / 1000) + ' t' : nf.format(x) + ' kg'; }
+
+  // schimbarea unității convertește valoarea
+  var lastUnit = 'ha';
+  document.querySelectorAll('input[name="unit"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      var v = parseFloat(String($('sup').value).replace(',', '.')) || 0;
+      if (lastUnit === 'ha' && r.value === 'mp') $('sup').value = Math.round(v * 10000);
+      if (lastUnit === 'mp' && r.value === 'ha') $('sup').value = +(v / 10000).toFixed(4);
+      lastUnit = r.value; calc();
+    });
+  });
+  document.addEventListener('input', calc);
+  document.addEventListener('change', calc);
+
+  // tab-uri
+  var tabs = [$('t1'), $('t2'), $('t3')], panels = [$('p1'), $('p2'), $('p3')], cur = 0;
+  var nextLbl = ['Vezi materialele', 'Vezi producția'];
+  function go(i) {
+    cur = i;
+    tabs.forEach(function (t, k) { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; });
+    panels.forEach(function (p, k) { p.hidden = k !== i; });
+    $('prev').hidden = i === 0;
+    $('next').hidden = i === 2;
+    if (i < 2) $('next').textContent = nextLbl[i];
+  }
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { go(k); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { go((k + 1) % 3); tabs[cur].focus(); }
+      if (e.key === 'ArrowLeft') { go((k + 2) % 3); tabs[cur].focus(); }
+    });
+  });
+  $('next').addEventListener('click', function () { go(cur + 1); $('t' + (cur + 1)).scrollIntoView({ behavior: 'smooth', block: 'center' }); });
+  $('prev').addEventListener('click', function () { go(cur - 1); });
+
+  calc();
+})();
+</script>
+<script>
+/* pagina nouă se deschide mereu de sus, cu excepția legăturilor spre o secțiune (#) */
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+if(!location.hash){window.scrollTo(0,0);addEventListener('load',function(){window.scrollTo(0,0);});}
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nobilfruct Transilvania | Pepinieră de afin in vitro</title>
+<meta name="description" content="Plante de afin in vitro, sănătoase și cu tulpini multiple, din Bologa, Cluj. Pepiniera Nobilfruct Transilvania.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#1B2E24;
+  --verde-2:#234E45;
+  --bej:#FBF8F1;
+  --bej-2:#F0E9DA;
+  --cta:#2F5DA8;
+  --cta-hover:#234785;
+  --cta-light:#5B8DEF;
+  --r:36px;   /* rotunjirea blocurilor mari */
+  --n:28px;   /* raza colțurilor decupate */
+}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bej);color:var(--verde);
+  font-family:"Figtree",system-ui,sans-serif;font-size:1.0625rem;line-height:1.55}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--cta-light);outline-offset:3px}
+
+/* ---------- bara de sus ---------- */
+.top{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  background:var(--verde);color:var(--bej);border-radius:999px;padding:8px}
+.logo{background:var(--bej);border-radius:999px;padding:8px 22px;display:flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:10px 18px;border-radius:999px;font-weight:500;transition:background .2s,color .2s}
+.nav a:hover{background:var(--bej);color:var(--verde)}
+.tel{background:var(--cta-light);color:var(--verde);font-weight:600;padding:13px 26px;border-radius:999px;transition:background .2s}
+.tel:hover{background:#9DBBF7}
+
+/* ---------- scena principală ---------- */
+.stage{max-width:1320px;margin:14px auto 0;position:relative;overflow:hidden;
+  height:clamp(540px,82vh,780px);border-radius:var(--r);background:var(--bej-2)}
+.media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.card{position:absolute;background:var(--bej)}
+/* colțuri decupate (concave) care „curg" în video */
+.card::before,.card::after{content:"";position:absolute;width:var(--n);height:var(--n);pointer-events:none}
+
+.card--title{top:0;left:0;width:min(640px,52%);padding:40px 44px 40px 40px;border-bottom-right-radius:var(--r)}
+.card--title::before{left:100%;top:0;
+  background:radial-gradient(circle at 100% 100%,transparent calc(var(--n) - 1px),var(--bej) var(--n))}
+.card--title::after{left:0;top:100%;
+  background:radial-gradient(circle at 100% 100%,transparent calc(var(--n) - 1px),var(--bej) var(--n))}
+
+.card--prod{right:0;bottom:0;width:min(330px,34%);padding:28px 28px 30px 30px;border-top-left-radius:var(--r)}
+.card--prod::before{right:100%;bottom:0;
+  background:radial-gradient(circle at 0 0,transparent calc(var(--n) - 1px),var(--bej) var(--n))}
+.card--prod::after{right:0;bottom:100%;
+  background:radial-gradient(circle at 0 0,transparent calc(var(--n) - 1px),var(--bej) var(--n))}
+
+h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(2rem,3.7vw,3.5rem);line-height:1.05;margin:0 0 26px;max-width:15ch}
+.intro{display:flex;gap:20px;align-items:flex-start;margin-bottom:26px}
+.intro img{width:112px;height:112px;object-fit:cover;flex:none;border-radius:28px 28px 28px 8px}
+.intro p{margin:0;max-width:46ch}
+
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;font-weight:600;padding:13px 26px;border-radius:999px;border:2px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn--cta{background:var(--cta);color:#fff}
+.btn--cta:hover{background:var(--cta-hover)}
+.btn--ghost{border-color:var(--verde)}
+.btn--ghost:hover{background:var(--verde);color:var(--bej)}
+
+.card--prod h2{font-family:"Bricolage Grotesque",sans-serif;font-size:1.6rem;margin:0 0 4px;letter-spacing:-.01em}
+.card--prod p{margin:0 0 16px;font-size:.97rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips a{background:var(--bej-2);color:var(--verde);padding:8px 16px;border-radius:999px;font-weight:500;transition:background .2s,color .2s}
+.chips a:hover{background:var(--cta);color:#fff}
+
+
+/* ---------- formate ---------- */
+.formats{max-width:1320px;margin:64px auto 0}
+.formats h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;margin:0 0 10px}
+.formats .lead{margin:0 0 28px;max-width:60ch}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.fcard{background:var(--bej-2);border-radius:28px;padding:22px 24px 26px;display:flex;flex-direction:column}
+.pic{height:190px;display:flex;align-items:flex-end;justify-content:center;position:relative;margin-bottom:18px}
+.pic svg{display:block;height:auto}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:20px;background:var(--bej-2)}
+.fcard h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.5rem;margin:0 0 14px}
+.yield{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:2.1rem;letter-spacing:-.02em;line-height:1;margin:0}
+.yield-l{margin:6px 0 18px;font-size:.95rem}
+.spec{margin:0 0 22px;padding:14px 0 0;border-top:1px solid rgba(27,46,36,.2);font-weight:500}
+.fcard .btn{margin-top:auto;text-align:center}
+.note{margin:14px 4px 0;font-size:.9rem;opacity:.8}
+.deliver{margin:18px auto 0;background:var(--verde);color:var(--bej);border-radius:999px;
+  padding:16px 28px;display:flex;flex-wrap:wrap;gap:6px 28px;justify-content:space-between;font-weight:500}
+
+/* ---------- consultanță ---------- */
+.consult{max-width:1320px;margin:14px auto 0;background:var(--bej-2);border-radius:var(--r);padding:20px 36px 20px 20px;
+  display:grid;grid-template-columns:minmax(0,360px) 1fr auto;align-items:center;gap:20px 32px}
+.consult-img{width:100%;height:220px;object-fit:cover;border-radius:24px;display:block}
+
+/* ---------- secțiuni noi ---------- */
+.block{max-width:1320px;margin:64px auto 0}
+.block h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;
+  font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;margin:0 0 10px}
+.block .lead{margin:0 0 28px;max-width:62ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{margin:0;background:var(--bej-2);border-radius:28px;padding:12px 12px 24px}
+.step img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block;margin-bottom:18px}
+.step figcaption{padding:0 12px}
+.step b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.4rem;margin:0 0 6px}
+.step .num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--verde);color:var(--bej);
+  font-size:.9rem;font-weight:600;margin-bottom:10px}
+.seasons{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.seasons figure{margin:0;position:relative;border-radius:28px;overflow:hidden}
+.seasons img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
+.seasons figcaption{position:absolute;left:12px;bottom:12px;background:var(--bej);color:var(--verde);font-weight:600;padding:8px 18px;border-radius:999px}
+.consult h2{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-.02em;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.1;margin:0 0 8px}
+.consult p{margin:0;max-width:60ch}
+.consult .sig{margin-top:10px;font-size:.9rem;opacity:.7}
+
+.arts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.art{display:grid;grid-template-columns:170px 1fr;gap:20px;align-items:center;background:var(--verde);color:var(--bej);border-radius:28px;padding:12px;transition:transform .2s,box-shadow .2s}
+.art:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(27,46,36,.18)}
+.art img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:20px;display:block}
+.art span{padding-right:14px;opacity:.95}
+.art i{font-style:normal}
+.art .tag{display:inline-block;background:var(--cta-light);color:var(--verde);font-size:.8rem;font-weight:600;border-radius:999px;padding:4px 12px;margin-bottom:10px}
+.art b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:1.5rem;line-height:1.15;margin-bottom:6px}
+.art .go{display:inline-block;margin-top:12px;font-weight:600;border-bottom:2px solid currentColor;padding-bottom:1px}
+/* ---------- mobil ---------- */
+@media (max-width:820px){
+  body{padding:12px}
+  .top{border-radius:30px}
+  .nav{order:3;width:100%;margin:0;overflow-x:auto;justify-content:flex-start}
+  .nav a{white-space:nowrap}
+  .stage{height:auto;overflow:visible;background:none;display:flex;flex-direction:column;gap:12px;position:relative}
+  .media{position:absolute;top:0;left:0;right:0;height:84svh;min-height:520px;border-radius:var(--r)}
+  .card{position:static;width:auto;border-radius:var(--r)}
+  .card::before,.card::after{display:none}
+  .card--title{order:1;position:relative;min-height:84svh;min-height:max(84svh,520px);display:flex;flex-direction:column;justify-content:flex-end;
+    padding:24px 22px 26px;color:var(--bej);
+    background:linear-gradient(180deg,rgba(27,46,36,0) 30%,rgba(27,46,36,.55) 55%,rgba(27,46,36,.92) 100%)}
+  .card--title h1{font-size:clamp(2rem,9vw,2.6rem);margin-bottom:14px;text-shadow:0 2px 16px rgba(0,0,0,.25)}
+  .card--title .intro{margin-bottom:20px}
+  .card--title .intro img{display:none}
+  .card--title .intro p{font-size:1rem;opacity:.92}
+  .card--title .btn--ghost{border-color:var(--bej);color:var(--bej)}
+  .card--title .btn--cta{background:var(--cta-light);color:var(--verde)}
+  .card--prod{order:3;background:var(--bej-2);padding:26px 24px}
+  .grid{grid-template-columns:1fr}
+  .formats{margin-top:44px}
+  .deliver{border-radius:28px;padding:18px 22px}
+  .chips a{background:var(--bej)}
+  .consult{grid-template-columns:1fr;padding:14px 14px 26px}
+  .consult > div{padding:0 8px}
+  .consult .btns{padding:0 8px}
+  .block{margin-top:44px}
+  .steps{grid-template-columns:1fr}
+  .arts{grid-template-columns:1fr}
+  .art{grid-template-columns:96px 1fr;gap:14px}
+  .art b{font-size:1.2rem}
+  .seasons{grid-template-columns:1fr 1fr;gap:10px}
+  .seasons figure{border-radius:22px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="pill logo" href="index.html" aria-label="Nobilfruct, prima pagină">
+    <img src="assets/sigla.png" alt="Nobilfruct">
+  </a>
+  <nav class="pill nav" aria-label="Meniu principal">
+    <a href="varietati/index.html">Varietăți</a>
+    <a href="tehnologia-de-cultura/index.html">Tehnologia de cultură</a>
+    <a href="calculator/index.html">Calculator</a>
+    <a href="blog/in-vitro-vs-butasi/index.html">Blog</a>
+    <a href="contact/index.html">Contact</a>
+  </nav>
+  <a class="tel" href="tel:0746239933">0746 239 933</a>
+</header>
+
+<main>
+  <section class="stage" aria-label="Prezentare">
+
+    <!-- Filmare cu drona deasupra pepinierei. Dacă videoul nu pornește, se vede imaginea din poster. -->
+    <video class="media" autoplay muted loop playsinline preload="metadata"
+           poster="assets/hero.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+
+    <div class="card card--title">
+      <h1>Plante de afin sănătoase, pentru plantații care fructifică repede și bogat</h1>
+      <div class="intro">
+        <img src="assets/radacini.jpg" alt="Sistemul radicular al plantelor de afin din pepinieră">
+        <p>Pepinieră de afin in vitro din Bologa, Cluj. Plantele noastre au mai multe tulpini, sunt libere de boli și pot da până la 1 kg de afine în al doilea an de la plantare.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn--cta" href="tel:0746239933">Sună-ne</a>
+        <a class="btn btn--ghost" href="varietati/index.html">Vezi varietățile</a>
+      </div>
+    </div>
+
+    <div class="card card--prod">
+      <h2>Varietăți de afin</h2>
+      <p>Alege după perioada de coacere.</p>
+      <div class="chips">
+        <a href="varietati/index.html#timpurii">Timpurii</a>
+        <a href="varietati/index.html#mijlocii">Mijlocii</a>
+        <a href="varietati/index.html#tarzii">Târzii</a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="formats" id="formate" aria-labelledby="formate-titlu">
+    <h2 id="formate-titlu">Plante de afin, în trei formate de ghiveci</h2>
+    <p class="lead">Alege formatul cel mai potrivit pentru tine. Indiferent de alegere, îți asigurăm consultanță și suport de la plantare până la producție. Prețul îl stabilim în funcție de cantitate.</p>
+    <div class="grid">
+    <article class="fcard">
+      <div class="pic">
+        <svg width="92" viewBox="0 0 120 150" aria-hidden="true">
+            <g fill="#9DB38F"><ellipse cx="60" cy="38" rx="9" ry="26"/><ellipse cx="38" cy="58" rx="9" ry="22" transform="rotate(-35 38 58)"/><ellipse cx="82" cy="58" rx="9" ry="22" transform="rotate(35 82 58)"/><ellipse cx="46" cy="30" rx="7" ry="18" transform="rotate(-18 46 30)"/><ellipse cx="74" cy="30" rx="7" ry="18" transform="rotate(18 74 30)"/></g>
+            <path d="M24 84h72l-10 60H34z" fill="#1B2E24"/>
+          </svg>
+      </div>
+      <h3>1,4 litri</h3>
+      <p class="yield">500–700 g</p>
+      <p class="yield-l">recoltă estimată în primul an de producție</p>
+      <p class="spec">250 de plante pe palet</p>
+      <a class="btn btn--cta" href="contact/index.html?format=1-4-litri">Cere ofertă</a>
+    </article>
+    <article class="fcard">
+      <div class="pic">
+        <svg width="112" viewBox="0 0 120 150" aria-hidden="true">
+            <g fill="#9DB38F"><ellipse cx="60" cy="38" rx="9" ry="26"/><ellipse cx="38" cy="58" rx="9" ry="22" transform="rotate(-35 38 58)"/><ellipse cx="82" cy="58" rx="9" ry="22" transform="rotate(35 82 58)"/><ellipse cx="46" cy="30" rx="7" ry="18" transform="rotate(-18 46 30)"/><ellipse cx="74" cy="30" rx="7" ry="18" transform="rotate(18 74 30)"/></g>
+            <path d="M24 84h72l-10 60H34z" fill="#1B2E24"/>
+          </svg>
+      </div>
+      <h3>2 litri</h3>
+      <p class="yield">700 g–1 kg</p>
+      <p class="yield-l">recoltă estimată în primul an de producție</p>
+      <p class="spec">160 de plante pe palet</p>
+      <a class="btn btn--cta" href="contact/index.html?format=2-litri">Cere ofertă</a>
+    </article>
+    <article class="fcard">
+      <div class="pic">
+        <svg width="150" viewBox="0 0 120 150" aria-hidden="true">
+            <g fill="#9DB38F"><ellipse cx="60" cy="38" rx="9" ry="26"/><ellipse cx="38" cy="58" rx="9" ry="22" transform="rotate(-35 38 58)"/><ellipse cx="82" cy="58" rx="9" ry="22" transform="rotate(35 82 58)"/><ellipse cx="46" cy="30" rx="7" ry="18" transform="rotate(-18 46 30)"/><ellipse cx="74" cy="30" rx="7" ry="18" transform="rotate(18 74 30)"/></g>
+            <path d="M24 84h72l-10 60H34z" fill="#1B2E24"/>
+          </svg>
+      </div>
+      <h3>5,7 litri</h3>
+      <p class="yield">1,2–1,5 kg</p>
+      <p class="yield-l">recoltă estimată în primul an de producție</p>
+      <p class="spec">80 de plante pe palet</p>
+      <a class="btn btn--cta" href="contact/index.html?format=5-7-litri">Cere ofertă</a>
+    </article>
+    </div>
+    <p class="note">Recoltele sunt estimări pentru condiții bune de cultură.</p>
+    <div class="deliver"><span>Livrare: octombrie–aprilie</span><span>Preț la cerere, în funcție de cantitate</span></div>
+  </section>
+
+  <section class="block" aria-labelledby="prod-titlu">
+    <h2 id="prod-titlu">Cum producem plantele</h2>
+    <p class="lead">Toate plantele noastre sunt produse in vitro, scoase din laborator și aclimatizate în România, în pepiniera noastră din Bologa, jud. Cluj. Sunt crescute și îngrijite aici până când sunt gata de plantat. Pepinieră autorizată, certificată ITCSMS. <a href="blog/in-vitro-vs-butasi/index.html" style="font-weight:600;color:var(--cta)">De ce in vitro și nu butași? →</a></p>
+    <div class="steps">
+      <figure class="step">
+        <img src="assets/in-vitro.jpg" alt="Plantule de afin crescute in vitro" loading="lazy">
+        <figcaption><span class="num">1</span><b>In vitro</b>Plante înmulțite în condiții de laborator: sănătoase, uniforme și identice genetic cu varietatea din care provin.</figcaption>
+      </figure>
+      <figure class="step">
+        <img src="assets/aclimatizare.jpg" alt="Plantulă de afin in vitro în alveolă, în faza de aclimatizare" loading="lazy">
+        <figcaption><span class="num">2</span><b>Aclimatizare</b>Plantulele trec în alveole și se obișnuiesc treptat cu aerul și lumina de afară.</figcaption>
+      </figure>
+      <figure class="step">
+        <img src="assets/pepiniera.jpg" alt="Rânduri de plante de afin în ghivece, în pepiniera din Bologa" loading="lazy">
+        <figcaption><span class="num">3</span><b>Ghiveci</b>Cresc în ghivece în aer liber, cu mai multe tulpini și rădăcini dezvoltate, gata de plantat.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="an-titlu">
+    <h2 id="an-titlu">Pepiniera, de-a lungul anului</h2>
+    <div class="seasons">
+      <figure><img src="assets/sezon-flori.jpg" alt="Flori de afin primăvara" loading="lazy"><figcaption>Primăvara</figcaption></figure>
+      <figure><img src="assets/sezon-fructe.jpg" alt="Ciorchine de afine coapte ținut în palmă" loading="lazy"><figcaption>Vara</figcaption></figure>
+      <figure><img src="assets/sezon-toamna.jpg" alt="Plante de afin cu frunze roșii toamna" loading="lazy"><figcaption>Toamna</figcaption></figure>
+      <figure><img src="assets/sezon-iarna.jpg" alt="Rânduri de afin în repaus, iarna, cu zăpadă" loading="lazy"><figcaption>Iarna</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="art-titlu">
+    <h2 id="art-titlu">Întrebările pe care ni le pun fermierii</h2>
+    <div class="arts">
+      <a class="art" href="blog/varsta-plantei/index.html">
+        <img src="assets/radacini.jpg" alt="" loading="lazy">
+        <span><i class="tag">Cea mai frecventă întrebare</i><b>„Câți ani are planta?”</b>De ce vârsta nu contează la afin și ce să întrebi în schimb.<br><i class="go">Citește articolul →</i></span>
+      </a>
+      <a class="art" href="blog/in-vitro-vs-butasi/index.html">
+        <img src="assets/in-vitro.jpg" alt="" loading="lazy">
+        <span><i class="tag">Ce spun studiile</i><b>In vitro sau butași?</b>Ce spun studiile și de ce rădăcina din ghiveci face diferența.<br><i class="go">Citește articolul →</i></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="consult" aria-labelledby="consult-titlu">
+    <img class="consult-img" src="assets/infiintare.jpg" alt="Înființarea unei plantații de afin în câmp" loading="lazy">
+    <div>
+      <h2 id="consult-titlu">Te ajutăm de la înființare până la producție</h2>
+      <p>Acoperim tot procesul cu know-how de specialitate: alegerea terenului, analiza de sol, planul plantației, plantarea și îngrijirea până la primele recolte. Experiența noastră îmbină practica din pepinieră și din plantații cu studiile de specialitate în cultura afinului.</p>
+      <p class="sig">Consultanță: dr. ing. Sabin Molnar</p>
+    </div>
+    <div class="btns">
+      <a class="btn btn--cta" href="calculator/index.html">Calculează-ți plantația</a>
+      <a class="btn btn--ghost" href="contact/index.html">Cere ofertă</a>
+    </div>
+  </section>
+</main>
+
+<script>
+/* respectă setarea „reduce motion": videoul nu pornește singur */
+if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('video').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+}
+</script>
+<script>
+/* pagina nouă se deschide mereu de sus, cu excepția legăturilor spre o secțiune (#) */
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+if(!location.hash){window.scrollTo(0,0);addEventListener('load',function(){window.scrollTo(0,0);});}
+</script>
+</body>
+</html>

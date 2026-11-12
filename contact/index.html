@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact și cerere de ofertă | Nobilfruct Transilvania</title>
+<meta name="description" content="Cere o ofertă pentru plante de afin Duke în ghiveci. Pepiniera Nobilfruct Transilvania, Bologa, Cluj.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --verde:#1B2E24;
+  --verde-2:#234E45;
+  --bej:#FBF8F1;
+  --bej-2:#F0E9DA;
+  --cta:#2F5DA8;
+  --cta-hover:#234785;
+  --cta-light:#5B8DEF;
+  --r:36px;
+}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bej);color:var(--verde);
+  font-family:"Figtree",system-ui,sans-serif;font-size:1.0625rem;line-height:1.55}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--cta-light);outline-offset:3px}
+
+/* ---------- bara de sus (identică cu prima pagină) ---------- */
+.top{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  background:var(--verde);color:var(--bej);border-radius:999px;padding:8px}
+.logo{background:var(--bej);border-radius:999px;padding:8px 22px;display:flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{padding:10px 18px;border-radius:999px;font-weight:500;transition:background .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{background:var(--bej);color:var(--verde)}
+.tel{background:var(--cta-light);color:var(--verde);font-weight:600;padding:13px 26px;border-radius:999px;transition:background .2s}
+.tel:hover{background:#9DBBF7}
+
+/* ---------- pagina de contact ---------- */
+.wrap{max-width:860px;margin:14px auto 0}
+
+
+.formcard{background:var(--bej-2);border-radius:var(--r);padding:40px 40px 44px}
+form{display:grid;gap:30px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.3rem;letter-spacing:-.01em;
+  padding:0;margin:0 0 14px;display:flex;align-items:center;gap:12px}
+.num{flex:none;width:32px;height:32px;border-radius:50%;background:var(--verde);color:var(--bej);
+  font-family:"Figtree",sans-serif;font-size:.95rem;font-weight:600;display:grid;place-items:center}
+
+/* opțiuni tip „pastilă" */
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.opt span{display:block;background:var(--bej);border:2px solid transparent;padding:11px 22px;border-radius:999px;
+  font-weight:500;cursor:pointer;transition:background .2s,color .2s,border-color .2s;user-select:none}
+.opt:hover span{border-color:var(--verde)}
+.opt input:checked + span{background:var(--cta);color:#fff;border-color:var(--cta)}
+.opt input:focus-visible + span{outline:3px solid var(--cta-light);outline-offset:3px}
+fieldset.err .opt span{border-color:#B3261E}
+.aside{margin:10px 0 0;font-size:.9rem;opacity:.7}
+
+/* câmpuri de contact */
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f{display:grid;gap:6px}
+.f--full{grid-column:1/-1}
+.f label{font-weight:600;font-size:.95rem}
+.f label em{font-style:normal;font-weight:400;opacity:.65}
+.f input,.f select{font:inherit;color:var(--verde);background:var(--bej);border:2px solid transparent;border-radius:18px;
+  padding:13px 18px;width:100%;transition:border-color .2s}
+.f select{appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%231B2E24' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 18px center;padding-right:44px}
+.f input:hover,.f select:hover{border-color:rgba(27,46,36,.35)}
+.f input:focus,.f select:focus{outline:none;border-color:var(--cta)}
+.f.err input,.f.err select{border-color:#B3261E}
+
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.93rem;cursor:pointer}
+.consent input{flex:none;width:22px;height:22px;margin:1px 0 0;accent-color:var(--cta);cursor:pointer}
+.consent.err{color:#B3261E}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+.send{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.btn{font:inherit;font-weight:600;padding:15px 34px;border-radius:999px;border:0;cursor:pointer;
+  background:var(--cta);color:#fff;transition:background .2s}
+.btn:hover{background:var(--cta-hover)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.msg{margin:0;font-weight:500}
+.msg--err{color:#B3261E}
+
+.done{text-align:left;padding:10px 0}
+.done h2{font-family:"Bricolage Grotesque",sans-serif;font-size:2rem;letter-spacing:-.02em;line-height:1.1;margin:0 0 12px}
+.done p{margin:0 0 22px;max-width:46ch}
+.done a{display:inline-block;background:var(--verde);color:var(--bej);font-weight:600;padding:13px 26px;border-radius:999px}
+
+/* ---------- mobil ---------- */
+@media (max-width:900px){
+  body{padding:12px}
+  .top{border-radius:30px}
+  .nav{order:3;width:100%;margin:0;overflow-x:auto;justify-content:flex-start}
+  .nav a{white-space:nowrap}
+  .formcard{padding:28px 20px 32px}
+  .fields{grid-template-columns:1fr}
+  .opt span{padding:10px 18px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="../index.html" aria-label="Nobilfruct, prima pagină">
+    <img src="../assets/sigla.png" alt="Nobilfruct">
+  </a>
+  <nav class="nav" aria-label="Meniu principal">
+    <a href="../varietati/index.html">Varietăți</a>
+    <a href="../tehnologia-de-cultura/index.html">Tehnologia de cultură</a>
+    <a href="../calculator/index.html">Calculator</a>
+    <a href="../blog/in-vitro-vs-butasi/index.html">Blog</a>
+    <a href="../contact/index.html" aria-current="page">Contact</a>
+  </nav>
+  <a class="tel" href="tel:0746239933">0746 239 933</a>
+</header>
+
+<main class="wrap">
+
+  <section class="formcard" aria-labelledby="titlu">
+    <h1 id="titlu">Cere o ofertă pentru plante de afin</h1>
+    <form id="oferta" novalidate>
+
+      <fieldset data-group="suprafata">
+        <legend><span class="num">1</span>Ce suprafață vrei să plantezi?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="suprafata" value="Sub 0,5 ha" required><span>Sub 0,5 ha</span></label>
+          <label class="opt"><input type="radio" name="suprafata" value="0,5–3 ha"><span>0,5–3 ha</span></label>
+          <label class="opt"><input type="radio" name="suprafata" value="3–5 ha"><span>3–5 ha</span></label>
+          <label class="opt"><input type="radio" name="suprafata" value="Peste 5 ha"><span>Peste 5 ha</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset data-group="ghiveci">
+        <legend><span class="num">2</span>În ce ghiveci?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="ghiveci" value="1,4 litri" required><span>1,4 litri</span></label>
+          <label class="opt"><input type="radio" name="ghiveci" value="2 litri"><span>2 litri</span></label>
+          <label class="opt"><input type="radio" name="ghiveci" value="5,7 litri"><span>5,7 litri</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset data-group="plantare">
+        <legend><span class="num">3</span>Când dorești plantarea?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="plantare" value="Primăvara următoare" required><span>Primăvara următoare</span></label>
+          <label class="opt"><input type="radio" name="plantare" value="Toamna următoare"><span>Toamna următoare</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset data-group="consultanta">
+        <legend><span class="num">4</span>Dorești și consultanță?</legend>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="consultanta" value="Da" required><span>Da</span></label>
+          <label class="opt"><input type="radio" name="consultanta" value="Nu"><span>Nu</span></label>
+        </div>
+        <p class="aside">Consultanța o oferă dr. ing. Sabin Molnar, specializat în cultura afinului.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="num">5</span>Unde te putem contacta?</legend>
+        <div class="fields">
+          <div class="f">
+            <label for="nume">Nume</label>
+            <input id="nume" name="nume" autocomplete="name" required>
+          </div>
+          <div class="f">
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9+()\s.\-]{10,}">
+          </div>
+          <div class="f">
+            <label for="localitate">Localitate</label>
+            <input id="localitate" name="localitate" autocomplete="address-level2" required>
+          </div>
+          <div class="f">
+            <label for="judet">Județ</label>
+            <select id="judet" name="judet" required>
+              <option value="">Alege județul</option>
+              <option>Alba</option><option>Arad</option><option>Argeș</option><option>Bacău</option><option>Bihor</option>
+              <option>Bistrița-Năsăud</option><option>Botoșani</option><option>Brăila</option><option>Brașov</option>
+              <option>București</option><option>Buzău</option><option>Călărași</option><option>Caraș-Severin</option>
+              <option>Cluj</option><option>Constanța</option><option>Covasna</option><option>Dâmbovița</option>
+              <option>Dolj</option><option>Galați</option><option>Giurgiu</option><option>Gorj</option>
+              <option>Harghita</option><option>Hunedoara</option><option>Ialomița</option><option>Iași</option>
+              <option>Ilfov</option><option>Maramureș</option><option>Mehedinți</option><option>Mureș</option>
+              <option>Neamț</option><option>Olt</option><option>Prahova</option><option>Sălaj</option>
+              <option>Satu Mare</option><option>Sibiu</option><option>Suceava</option><option>Teleorman</option>
+              <option>Timiș</option><option>Tulcea</option><option>Vâlcea</option><option>Vaslui</option>
+              <option>Vrancea</option><option>În afara României</option>
+            </select>
+          </div>
+          <div class="f f--full">
+            <label for="email">Email <em>(opțional)</em></label>
+            <input id="email" name="email" type="email" autocomplete="email">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- capcană pentru roboți: oamenii nu o văd -->
+      <div class="hp" aria-hidden="true"><input name="_honey" tabindex="-1" autocomplete="off"></div>
+
+      <label class="consent" id="consent-row">
+        <input type="checkbox" name="acord" required>
+        <span>Sunt de acord ca Nobilfruct să folosească aceste date doar pentru a-mi trimite oferta.</span>
+      </label>
+
+      <div class="send">
+        <button class="btn" type="submit">Trimite cererea</button>
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  /* Unde ajung cererile. După activare, poți înlocui adresa cu codul primit de la FormSubmit. */
+  var ENDPOINT = 'https://formsubmit.co/ajax/nobilfruct@gmail.com';
+
+  var form = document.getElementById('oferta');
+  var msg = document.getElementById('msg');
+
+  /* precompletează ghiveciul când vine din butoanele „Cere ofertă" (?format=1-4-litri etc.) */
+  var map = { '1-4-litri': '1,4 litri', '2-litri': '2 litri', '5-7-litri': '5,7 litri' };
+  var qs = new URLSearchParams(location.search);
+  var f = qs.get('format');
+  if (map[f]) {
+    var r = form.querySelector('input[name="ghiveci"][value="' + map[f] + '"]');
+    if (r) r.checked = true;
+  }
+  /* precompletează suprafața când vine din calculator (?suprafata=0-5-3 etc.) */
+  var smap = { 'sub-0-5': 'Sub 0,5 ha', '0-5-3': '0,5–3 ha', '3-5': '3–5 ha', 'peste-5': 'Peste 5 ha' };
+  var s = qs.get('suprafata');
+  if (smap[s]) {
+    var rs = form.querySelector('input[name="suprafata"][value="' + smap[s] + '"]');
+    if (rs) rs.checked = true;
+  }
+
+  /* scoate marcajul de eroare când omul corectează */
+  form.addEventListener('change', function (e) {
+    var fs = e.target.closest('fieldset[data-group]'); if (fs) fs.classList.remove('err');
+    var fl = e.target.closest('.f'); if (fl) fl.classList.remove('err');
+    if (e.target.name === 'acord') document.getElementById('consent-row').classList.remove('err');
+  });
+  form.addEventListener('input', function (e) {
+    var fl = e.target.closest('.f'); if (fl) fl.classList.remove('err');
+  });
+
+  function validate() {
+    var first = null;
+    form.querySelectorAll('fieldset[data-group]').forEach(function (fs) {
+      var ok = fs.querySelector('input:checked');
+      fs.classList.toggle('err', !ok);
+      if (!ok && !first) first = fs;
+    });
+    form.querySelectorAll('.f input, .f select').forEach(function (el) {
+      var ok = el.checkValidity() && (!el.required || el.value.trim() !== '');
+      el.closest('.f').classList.toggle('err', !ok);
+      if (!ok && !first) first = el;
+    });
+    var acord = form.elements.acord;
+    document.getElementById('consent-row').classList.toggle('err', !acord.checked);
+    if (!acord.checked && !first) first = acord;
+    return first;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    msg.className = 'msg'; msg.textContent = '';
+
+    var bad = validate();
+    if (bad) {
+      msg.className = 'msg msg--err';
+      msg.textContent = 'Completează câmpurile marcate cu roșu.';
+      bad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    if (form.elements._honey.value) return; /* robot */
+
+    var d = form.elements;
+    var data = {
+      _subject: 'Cerere ofertă afin: ' + d.suprafata.value + ', ' + d.ghiveci.value + ' (' + d.judet.value + ')',
+      _template: 'table',
+      _captcha: 'false',
+      'Suprafață': d.suprafata.value,
+      'Ghiveci': d.ghiveci.value,
+      'Plantare': d.plantare.value,
+      'Consultanță': d.consultanta.value,
+      'Nume': d.nume.value.trim(),
+      'Telefon': d.telefon.value.trim(),
+      'Localitate': d.localitate.value.trim(),
+      'Județ': d.judet.value,
+      'Email': d.email.value.trim() || '—'
+    };
+    if (data.Email !== '—') data._replyto = data.Email;
+
+    var btn = form.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Se trimite…';
+
+    fetch(ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+    .then(function (res) {
+      if (!res.ok || String(res.j.success) !== 'true') throw new Error(res.j.message || 'eroare');
+      form.parentNode.innerHTML =
+        '<div class="done" role="status"><h2>Mulțumim, am primit cererea!</h2>' +
+        '<p>Te sunăm în cel mai scurt timp cu oferta. Dacă e urgent, ne poți suna direct.</p>' +
+        '<a href="tel:0746239933">0746 239 933</a></div>';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    })
+    .catch(function () {
+      btn.disabled = false; btn.textContent = 'Trimite cererea';
+      msg.className = 'msg msg--err';
+      msg.innerHTML = 'Cererea nu a putut fi trimisă. Sună-ne la <a href="tel:0746239933"><b>0746 239 933</b></a>.';
+    });
+  });
+})();
+</script>
+<script>
+/* pagina nouă se deschide mereu de sus, cu excepția legăturilor spre o secțiune (#) */
+try{if('scrollRestoration' in history)history.scrollRestoration='manual';}catch(e){}
+if(!location.hash){window.scrollTo(0,0);addEventListener('load',function(){window.scrollTo(0,0);});}
+</script>
+</body>
+</html>
