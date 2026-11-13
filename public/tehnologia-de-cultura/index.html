@@ -176,7 +176,7 @@ article h2 .n{display:inline-grid;place-items:center;width:38px;height:38px;bord
     </ul>
     <figure class="vid">
       <div class="vbox">
-        <video id="vclient" src="../assets/plantatie-2-ani-v2.mp4" poster="../assets/plantatie-2-ani.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Plantație de afin înființată cu plantele noastre, la doi ani de la plantare, cu comentariul fermierului"></video>
+        <video id="vclient" src="../assets/plantatie-2-ani-v3.mp4" poster="../assets/plantatie-2-ani.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Plantație de afin înființată cu plantele noastre, la doi ani de la plantare, cu comentariul fermierului"></video>
         <button type="button" class="vbtn play" id="vplay" aria-label="Pauză"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-pause"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></g><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
         <input type="range" class="vseek" id="vseek" min="0" max="1000" value="0" step="1" aria-label="Derulează filmul">
         <button type="button" class="vbtn snd" id="vsnd" aria-label="Pornește sunetul"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><g class="i-off"><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></g><g class="i-on"><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></g></svg></button>
@@ -249,7 +249,7 @@ v.addEventListener('play',function(){box.classList.remove('paused');pb.setAttrib
 v.addEventListener('pause',function(){box.classList.add('paused');pb.setAttribute('aria-label','Pornește');});
 pb.addEventListener('click',function(){toggle();flash();});
 v.addEventListener('click',function(){toggle();flash();});
-sb.addEventListener('click',function(){var on=v.muted;v.muted=!on;if(on){v.currentTime=0;v.play().catch(function(){});}box.classList.toggle('sound',on);sb.setAttribute('aria-label',on?'Oprește sunetul':'Pornește sunetul');});
+sb.addEventListener('click',function(){var on=v.muted;v.muted=!on;if(on&&v.paused){v.play().catch(function(){});}box.classList.toggle('sound',on);sb.setAttribute('aria-label',on?'Oprește sunetul':'Pornește sunetul');});
 var sk=document.getElementById('vseek'),drag=false;
 function upd(){if(drag||!v.duration)return;var x=v.currentTime/v.duration*1000;sk.value=x;sk.style.setProperty('--p',(x/10)+'%');}
 v.addEventListener('timeupdate',upd);
