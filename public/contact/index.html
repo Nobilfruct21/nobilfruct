@@ -124,7 +124,8 @@ fieldset.err .opt span{border-color:#B3261E}
 .f select:invalid{color:rgba(27,46,36,.55)}
 .f select option{color:var(--verde)}
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Nobilfruct Transilvania", "description": "Pepinieră de plante de afin produse in vitro", "url": "https://nobilfruct.ro/", "telephone": "+40746239933", "email": "nobilfruct@gmail.com", "image": "https://nobilfruct.ro/assets/hero.jpg", "address": {"@type": "PostalAddress", "streetAddress": "Strada Principală 162", "addressLocality": "Bologa", "postalCode": "407471", "addressRegion": "Cluj", "addressCountry": "RO"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Nobilfruct Transilvania", "description": "Pepinieră de plante de afin produse in vitro", "url": "https://nobilfruct.ro/", "telephone": "+40746239933", "email": "nobilfruct@gmail.com", "image": "https://nobilfruct.ro/assets/hero.jpg", "address": {"@type": "PostalAddress", "streetAddress": "Strada Principală 162", "addressLocality": "Bologa", "postalCode": "407471", "addressRegion": "Cluj", "addressCountry": "RO"}, "geo": {"@type": "GeoCoordinates", "latitude": 46.8767051, "longitude": 22.8812959}}</script>
+<link rel="stylesheet" href="../assets/footer.css">
 </head>
 <body>
 
@@ -228,7 +229,7 @@ fieldset.err .opt span{border-color:#B3261E}
 
       <label class="consent" id="consent-row">
         <input type="checkbox" name="acord" required>
-        <span>Sunt de acord ca Nobilfruct să folosească aceste date doar pentru a-mi trimite oferta.</span>
+        <span>Sunt de acord ca Nobilfruct să folosească aceste date doar pentru a-mi trimite oferta (<a href="../confidentialitate/index.html" target="_blank">detalii</a>).</span>
       </label>
 
       <div class="send">
@@ -244,14 +245,52 @@ fieldset.err .opt span{border-color:#B3261E}
       <p class="addr"><b>Pepiniera Nobilfruct Transilvania</b><br>Strada Principală 162, Bologa<br>407471, jud. Cluj</p>
       <p>Te rugăm să ne suni înainte, ca să fim în pepinieră când ajungi.</p>
       <div class="loc-btns">
-        <a class="lbtn" href="https://www.google.com/maps/search/?api=1&query=Nobilfruct+Transilvania+Bologa" target="_blank" rel="noopener">Deschide în Google Maps</a>
+        <a class="lbtn" href="https://www.google.com/maps?cid=10992559117744442169" target="_blank" rel="noopener">Deschide în Google Maps</a>
         <a class="lbtn ghost" href="tel:0746239933">Sună: 0746 239 933</a>
       </div>
     </div>
-    <iframe class="loc-map" src="https://maps.google.com/maps?q=Nobilfruct%20Transilvania%2C%20Strada%20Principal%C4%83%20162%2C%20Bologa&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Harta: pepiniera Nobilfruct din Bologa, jud. Cluj"></iframe>
+    <iframe class="loc-map" src="https://www.openstreetmap.org/export/embed.html?bbox=22.8662%2C46.8702%2C22.8962%2C46.8832&amp;layer=mapnik&amp;marker=46.8767051%2C22.8812959" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Harta: pepiniera Nobilfruct din Bologa, jud. Cluj"></iframe>
   </section>
 
 </main>
+
+<footer class="foot">
+  <div class="foot-top">
+    <div>
+      <a class="foot-logo" href="../index.html"><img src="../assets/sigla.png" alt="Nobilfruct Transilvania" loading="lazy"></a>
+      <p>Pepinieră de afin din Bologa, jud. Cluj. Plante produse in vitro, crescute în substrat special, cu consultanță de la plantare până la producție.</p>
+      <p>Consultanță: dr. ing. Sabin Molnar</p>
+      <div class="foot-ct">
+        <a href="tel:0746239933">0746 239 933</a>
+        <a href="mailto:nobilfruct@gmail.com">nobilfruct@gmail.com</a>
+      </div>
+    </div>
+    <div>
+      <h3>Pagini</h3>
+      <ul>
+        <li><a href="../varietati/index.html">Varietăți</a></li>
+        <li><a href="../tehnologia-de-cultura/index.html">Tehnologia de cultură</a></li>
+        <li><a href="../calculator/index.html">Calculator</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../contact/index.html">Cere ofertă</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Pepiniera</h3>
+      <p>Strada Principală 162<br>Bologa, 407471, jud. Cluj</p>
+      <p><a href="https://www.google.com/maps?cid=10992559117744442169" target="_blank" rel="noopener">Vezi pe Google Maps →</a></p>
+      <p>Livrare: octombrie–aprilie</p>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>© <span class="an">2026</span> NOBILFRUCT TRANSILVANIA SRL · CUI 32925919 · J12/976/2014 · Sat Bologa, Com. Poieni, Nr. 162, jud. Cluj</p>
+    <div class="foot-legal">
+      <a href="../confidentialitate/index.html">Politica de confidențialitate</a>
+      <a class="foot-sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener nofollow" title="Soluționarea alternativă a litigiilor (ANPC)"><img src="../assets/anpc-sal.png" alt="ANPC – Soluționarea alternativă a litigiilor" width="161" height="40" loading="lazy"></a>
+    </div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.foot .an').forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 
 <script>
 (function () {
