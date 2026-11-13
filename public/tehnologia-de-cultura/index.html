@@ -125,6 +125,14 @@ article h2 .n{display:inline-grid;place-items:center;width:38px;height:38px;bord
 .vbtn.snd:hover{background:rgba(27,46,36,.8)}
 .i-play,.vbox.paused .i-pause,.i-on,.vbox.sound .i-off{display:none}
 .vbox.paused .i-play,.vbox.sound .i-on{display:inline}
+.vseek{position:absolute;left:14px;right:62px;bottom:24px;margin:0;height:14px;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer;
+  --p:0%}
+.vseek::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(to right,#fff var(--p),rgba(255,255,255,.35) var(--p))}
+.vseek::-moz-range-track{height:4px;border-radius:4px;background:rgba(255,255,255,.35)}
+.vseek::-moz-range-progress{height:4px;border-radius:4px;background:#fff}
+.vseek::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#fff;margin-top:-5px;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.vseek::-moz-range-thumb{width:14px;height:14px;border:0;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.vid figcaption strong{display:inline-block;margin-top:8px;color:var(--cta);opacity:1}
 .vid figcaption b{font-family:"Bricolage Grotesque",sans-serif;font-size:1.3rem;display:inline-block;margin-bottom:6px}
 .vid figcaption{margin:0 8px 8px 0;font-size:.95rem;opacity:.85}
 @media (max-width:820px){.facts{grid-template-columns:1fr}.vid{grid-template-columns:1fr}.vid video{max-height:70vh}}
@@ -168,11 +176,12 @@ article h2 .n{display:inline-grid;place-items:center;width:38px;height:38px;bord
     </ul>
     <figure class="vid">
       <div class="vbox">
-        <video id="vclient" src="../assets/plantatie-2-ani.mp4" poster="../assets/plantatie-2-ani.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Plantație de afin înființată cu plantele noastre, la doi ani de la plantare, cu comentariul fermierului"></video>
+        <video id="vclient" src="../assets/plantatie-2-ani-v2.mp4" poster="../assets/plantatie-2-ani.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Plantație de afin înființată cu plantele noastre, la doi ani de la plantare, cu comentariul fermierului"></video>
         <button type="button" class="vbtn play" id="vplay" aria-label="Pauză"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="i-pause"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></g><path class="i-play" d="M8 5.5v13l11-6.5z"/></svg></button>
+        <input type="range" class="vseek" id="vseek" min="0" max="1000" value="0" step="1" aria-label="Derulează filmul">
         <button type="button" class="vbtn snd" id="vsnd" aria-label="Pornește sunetul"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z"/><g class="i-off"><path d="M16 9l5 6M21 9l-5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></g><g class="i-on"><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></g></svg></button>
       </div>
-      <figcaption><b>„Plantele sunt impecabile!”</b><br>Plantație înființată cu plantele noastre, filmată de fermier la doi ani de la plantare: rânduri uniforme, plante încărcate cu fructe.</figcaption>
+      <figcaption><b>„Plantele sunt impecabile!”</b><br>Plantație înființată cu plantele noastre, filmată de fermier la doi ani de la plantare: rânduri uniforme, plante încărcate cu fructe.<br><strong>Recuperare rapidă și sigură a investiției!</strong></figcaption>
     </figure>
 
     <h2><span class="n">2</span>Fă analiza de sol și corectează pH-ul</h2>
@@ -241,6 +250,11 @@ v.addEventListener('pause',function(){box.classList.add('paused');pb.setAttribut
 pb.addEventListener('click',function(){toggle();flash();});
 v.addEventListener('click',function(){toggle();flash();});
 sb.addEventListener('click',function(){var on=v.muted;v.muted=!on;if(on){v.currentTime=0;v.play().catch(function(){});}box.classList.toggle('sound',on);sb.setAttribute('aria-label',on?'Oprește sunetul':'Pornește sunetul');});
+var sk=document.getElementById('vseek'),drag=false;
+function upd(){if(drag||!v.duration)return;var x=v.currentTime/v.duration*1000;sk.value=x;sk.style.setProperty('--p',(x/10)+'%');}
+v.addEventListener('timeupdate',upd);
+sk.addEventListener('input',function(){drag=true;if(v.duration){v.currentTime=sk.value/1000*v.duration;}sk.style.setProperty('--p',(sk.value/10)+'%');});
+sk.addEventListener('change',function(){drag=false;});
 if(v.paused)box.classList.add('paused');})();
 </script>
 <script>
