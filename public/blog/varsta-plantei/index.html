@@ -64,6 +64,13 @@ sup a{text-decoration:none;color:var(--cta);font-weight:600;font-size:.8em;paddi
 .stat b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:2.4rem;letter-spacing:-.02em;line-height:1}
 .stat span{display:block;margin-top:6px;font-size:.95rem}
 
+.key{background:var(--verde);color:var(--bej);border-radius:28px;padding:30px 30px 26px;margin:30px 0}
+.key .key-t{font-family:"Bricolage Grotesque",sans-serif;font-size:1.6rem;line-height:1.15;margin:0 0 18px;letter-spacing:-.01em}
+.key ol{list-style:none;counter-reset:k;margin:0;padding:0;display:grid;gap:14px}
+.key li{counter-increment:k;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center;font-size:1.05rem}
+.key li::before{content:counter(k);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--cta-light);color:var(--verde);font-weight:700;font-size:1.15rem}
+.key b{color:#fff;display:block;font-size:1.15rem;margin-bottom:2px}
+.key li span{opacity:.92}
 .note{background:var(--bej-2);border-left:4px solid var(--cta-light);border-radius:0 20px 20px 0;padding:18px 22px;margin:22px 0}
 .note p:last-child{margin:0}
 
@@ -165,12 +172,12 @@ td:first-child{font-weight:600}
     <p>De aceea, primul an în câmp e unul de instalare: îndepărtăm mugurii floriferi, ca planta să-și dezvolte rădăcina și tulpinile. Chiar dacă vi se promit plante „pe rod”, producția vine tot din anul următor plantării. Fructele lăsate în primul an slăbesc planta tocmai când are cea mai mare nevoie de energie pentru rădăcini. Un studiu al Universității de Stat din Oregon a arătat că plantele de Duke lăsate să fructifice în primii doi ani au produs cu 26% mai puțin în al treilea an și au intrat în el mai slab dezvoltate.<sup><a href="#r6">6</a></sup></p>
     <p>Și extensia Universității din Maine observă că plantele mai vechi de trei ani sunt mai scumpe, iar costul în plus nu se justifică printr-o producție mai timpurie.<sup><a href="#r3">3</a></sup></p>
 
-    <div class="note">
-      <p><b>Ce contează, de fapt, la o plantă de afin:</b></p>
+    <div class="key">
+      <p class="key-t">Ce contează, de fapt, la o plantă de afin</p>
       <ol>
-        <li><b>Volumul rădăcinii.</b> Cu cât e mai mare, cu atât mai bine.</li>
-        <li><b>Substratul din balot.</b> Un balot doar din turbă simplă e un minus.</li>
-        <li><b>Vârsta rădăcinilor.</b> Cu cât sunt mai tinere (sub 3 ani), cu atât mai bine.</li>
+        <li><span><b>Volumul rădăcinii.</b> Cu cât e mai mare, cu atât mai bine.</span></li>
+        <li><span><b>Substratul din balot.</b> Un balot doar din turbă simplă e un minus.</span></li>
+        <li><span><b>Vârsta rădăcinilor.</b> Cu cât sunt mai tinere (sub 3 ani), cu atât mai bine.</span></li>
       </ol>
     </div>
 
